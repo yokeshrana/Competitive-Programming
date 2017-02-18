@@ -1,0 +1,62 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) By Yokesh Rana  #######################################
+##########################################################################################################
+
+
+/*
+	* To change this license header, choose License Headers in Project Properties.
+	* To change this template file, choose Tools | Templates
+	* and open the template in the editor.
+	*/
+	package codechef1;
+	 
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author y
+	*/
+	public class Codechef1 {
+	 
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	int n;
+	Scanner s=new Scanner(System.in);
+	n=s.nextInt();
+	while(n-->0)
+	{
+	int no;
+	int c0=0,c1=0,t=0;
+	no=s.nextInt();
+	while(no>0)
+	{
+	t++;
+	int r=no%10;
+	if(r==1)
+	c1++;
+	else
+	c0++;
+	no=no/10;
+	}
+	
+	
+	if(c1==1||c0==1)
+	System.out.println("Yes");
+	else
+	System.out.println("No");
+	}
+	
+	// TODO code application logic here
+	}
+	
+	}
+	
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

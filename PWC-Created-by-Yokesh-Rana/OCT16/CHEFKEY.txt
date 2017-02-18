@@ -1,0 +1,49 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) By Yokesh Rana  #######################################
+##########################################################################################################
+
+
+ 
+	import java.util.Scanner;
+	 
+	 
+	class Sparsearray {
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	long t=sc.nextInt();
+	 
+	while(t-->0)
+	{
+	long xmax=sc.nextInt(),ymax=sc.nextInt(),color=sc.nextInt();
+	long count=0;
+	// scanf("%d%d%d",&xmax,&ymax,&color);
+	 
+	for(int i=1;i<=xmax;i++)
+	for(int j=1;j<=ymax;j++)
+	{
+	if(i*j==color)
+	count++;
+	}
+	System.out.println(count);
+	}
+	 
+	}
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	 
+	
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+
