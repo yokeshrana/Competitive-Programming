@@ -1,0 +1,42 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14597290 (JAVA) plaintext list. Status: AC, problem PATROL, contest ISCC2017. By yr96 (yr96), 2017-07-17 18:45:13.
+
+	
+	
+	import java.math.BigDecimal;
+	import java.text.DecimalFormat;
+	import java.util.Scanner;
+	
+	
+	
+	class Codechef {
+	
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	int at=sc.nextInt();
+	int bt=sc.nextInt();
+	int ct=sc.nextInt();
+	 
+	double c=(double)ct/((double)at+(double)bt);
+	DecimalFormat df = new DecimalFormat("0.0000000");
+	System.out.println(df.format(c));
+	
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

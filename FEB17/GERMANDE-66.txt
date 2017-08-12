@@ -1,0 +1,91 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12815085 (C++14) plaintext list. Status: AC, problem GERMANDE, contest FEB17. By yr96 (yr96), 2017-02-11 16:48:55.
+
+	 
+	#include <bits/stdc++.h>
+	#define ll unsigned long long int
+	using namespace std;
+	 
+	int main() {
+	std::ios::sync_with_stdio(false);
+	ll t;
+	cin>>t;
+	while(t--){
+	int result=0;
+	ll o1,o2;
+	cin>>o1>>o2;
+	vector<ll> val,secval;
+	for(ll i=0;i<o1;i++)
+	for(ll j=0;j<o2;j++)
+	{
+	ll p;cin>>p;
+	val.push_back(p);
+	}//insertion done
+	vector<ll> ::iterator it=val.begin(),is;
+	// for(it=val.begin();it!=val.end();it++)
+	// cout<<*it<<" ";
+	// cout<<endl;
+	 
+	for(it=val.begin();it!=val.end();it++)
+	{ int cnt0=0,cnt1=0 ;
+	is=it;
+	 
+	for(ll j=0;j<o2;j++)
+	{
+	if(is==val.end())
+	is=val.begin();
+	 
+	if(*is==0)
+	cnt0++;else
+	cnt1++;
+	 
+	is++;
+	}
+	 
+	if(cnt1>cnt0)
+	secval.push_back(1);
+	else secval.push_back(0);
+	 
+	}
+	// for(it=secval.begin();it!=secval.end();it++)
+	// cout<<*it<<" ";
+	is=secval.begin();
+	bool flag=false;
+	for(ll i=0;i<o2;i++)
+	{
+	//creating a bitseut for pattion combination 1
+	 
+	ll cnt0=0,cnt1=0;
+	ll start=i;
+	for(ll m=0;m<o1;m++){
+	if(secval[start]==1)
+	cnt1++;
+	else
+	cnt0++;
+	start+=o2;
+	}
+	 
+	if(cnt1>cnt0)
+	flag=true;
+	if(cnt1>cnt0)break;
+	 
+	 
+	}
+	if(flag==true)cout<<1<<endl;else cout<<0<<endl;
+	 
+	 
+	}
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

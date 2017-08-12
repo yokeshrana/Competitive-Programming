@@ -1,0 +1,66 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14435891 (C++14) plaintext list. Status: AC, problem NITIKA, contest JULY17. By yr96 (yr96), 2017-07-07 23:45:54.
+
+	#include<bits/stdc++.h>
+	using namespace std;
+	int main ()
+	{
+	int t;
+	 
+	cin>>t;
+	t=t++;
+	 
+	while(t--)
+	{
+	cin >> ws;
+	 
+	string s;
+	getline(cin,s);
+	 
+	stringstream ss(s);
+	string word;
+	vector<string> st;
+	while(ss>>word)
+	{
+	st.push_back(word);
+	}
+	vector<string> :: reverse_iterator it;
+	 
+	int count=1;
+	vector<string> sg;
+	int flag=0;
+	for(it=st.rbegin(); it!=st.rend(); it++)
+	{
+	string data=*it;
+	transform(data.begin(), data.end(), data.begin(), ::tolower);
+	transform(data.begin(), data.begin()+1, data.begin(), ::toupper);
+	if(flag==0){
+	sg.push_back(data);
+	flag++;
+	}else{
+	data=data.substr(0,1)+'.';
+	 
+	sg.push_back(data);
+	//cout<<data;
+	}
+	 
+	}
+	for(it=sg.rbegin(); it!=sg.rend(); it++)
+	cout<<*it<<" ";
+	cout<<endl;
+	 
+	}
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

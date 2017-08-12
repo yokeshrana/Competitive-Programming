@@ -1,0 +1,110 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12810517 (C++14) plaintext list. Status: WA, problem MAKETRI, contest FEB17. By yr96 (yr96), 2017-02-11 10:18:43.
+
+	#include<bits/stdc++.h>
+	using namespace std;
+	int main(){
+	long long int N,L,R;
+	cin>>N>>L>>R;
+	vector <long long int> arr;
+	vector <long long int>:: iterator it=arr.begin();
+	map<int,int> maps;
+	map<int,int> ::iterator im=maps.begin();
+	map<int,int> ::iterator imn=maps.begin();
+	map<int,int> ::iterator ip=maps.end();
+	for (long long int i=0;i<N;i++)
+	{
+	long long int val;
+	cin>>val;
+	arr.push_back(val);
+	};
+	sort(arr.begin(),arr.end());
+	unsigned long long int min,max,count=0;;
+	for(it=arr.begin();it!=arr.end()-1;it++)
+	{
+	min=*(it+1)-*(it)+1;
+	max=*(it+1)+*(it)-1;
+	im=maps.find(min);
+	if(im==maps.end())
+	{
+	maps.insert(make_pair(min,max));
+	
+	}
+	else
+	{
+	
+	
+	/*if(im->second>max)
+	max=im->second;
+	maps[min]=max;
+	*///if(im->second<max)
+	maps[im->first]=max;
+	 
+	}
+	}
+	//maps.insert(make_pair(100000000000000,100000000000000));
+	//for(im=maps.begin();im!=maps.end();im++){
+	// cout<<im->first<<" "<<im->second <<endl;
+	//
+	//}
+	//
+	 
+	bool flag=false;
+	for(im=maps.begin();im!=maps.end();){
+	im++;flag=false;
+	imn=im;
+	im--;
+	if(imn!=maps.end())
+	{if((imn->first<=im->second)&&(im->second>=imn->first))
+	{maps.erase(imn);
+	flag=true;}
+	else if((imn->first<=im->second)&&(imn->second>=im->second))
+	{ maps[im->first]=imn->second;
+	//int p=im->second+1,q=imn->second;
+	maps.erase(imn);flag=true;
+	//maps.insert(make_pair(p,q));
+	
+	}
+	else if((im->second<imn->first)&&(im->second<=imn->second))
+	flag=false;
+	}
+	if(flag==false)
+	im++;
+	/*if(im->first>R)
+	break;*/
+	}
+	//for(im=maps.begin();im!=maps.end();im++){
+	// cout<<im->first<<" "<<im->second <<endl;
+	//}
+	for(im=maps.begin();im!=maps.end();im++){
+	
+	if((L<=im->first)&&(im->second<=R))
+	count+=(im->second)-(im->first)+1;
+	else if((im->first<=L)&&(L<=im->second)&&(im->second<=R))
+	count+=(im->second)-L+1;
+	else if((im->first>=L)&&(im->first<=R)&&(im->second>=R))
+	count+=R-(im->first)+1;
+	/* if(im->first>R)
+	break;*/
+	}
+	 
+	//for(im=maps.begin();im!=maps.end();im++){
+	// cout<<im->first<<" "<<im->second <<endl;
+	//
+	//}
+	cout<<count<<endl;
+	return 0;
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

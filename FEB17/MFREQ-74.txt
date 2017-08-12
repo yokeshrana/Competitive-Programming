@@ -1,0 +1,129 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12830564 (C++14) plaintext list. Status: AC, problem MFREQ, contest FEB17. By yr96 (yr96), 2017-02-12 19:40:48.
+
+	 
+	#include <bits/stdc++.h>
+	#define ll unsigned long long int
+	 
+	using namespace std;
+	/*
+	5 1
+	1 2 2 2 2
+	1 5 3
+	2*/
+	int main() {
+	ios::sync_with_stdio(false);
+	map<ll,pair<ll,ll> > val;
+	map<ll,pair<ll,ll> > ::iterator it,prit,rm; /* L frequency element*/
+	ll N,Q;
+	cin>>N>>Q;
+	 
+	ll ele,prevele=-1,start=1;
+	// for(int i=1;i<=N;i++)
+	// cout<<i<<" ";
+	// cout<<endl;
+	for(int i=1;i<=N;i++){
+	cin>>ele;
+	static ll frequency=1;
+	if(prevele==ele)
+	{
+	frequency++;
+	rm=val.find(start);
+	val.erase(rm);
+	val.insert(make_pair(start,make_pair(frequency,ele)));
+	// cout<<"\ninserted "<<start << " "<<frequency<< " "<<ele<<endl;
+	}else
+	{
+	start=i,frequency=1;
+	val.insert(make_pair(start,make_pair(frequency,ele)));
+	// cout<<"\ninserted "<<start << " "<<frequency<< " "<<ele<<endl;
+	}
+	 
+	prevele=ele;
+	}
+	// for(it=val.begin();it!=val.end();it++)
+	// cout<<"start= "<<it->first<<" frequency = " <<it->second.first<<" element= " <<it->second.second<<endl;
+	 
+	//For queries
+	for(int i=0;i<Q;i++){
+	 
+	ll l,r,k;
+	cin>>l>>r>>k;
+	ll maximum=0,element=0;
+	 
+	// case lying outside
+	it=val.upper_bound(l);
+	 
+	//cout<<"present value"<<it->first<<endl;
+	if(it!=val.end()){ //case when found
+	if(it->first!=l) /* seeing what is the max in previous one*/
+	{
+	it--;
+	prit=it;
+	it++;
+	ll freq=it->first-l;
+	if(freq>=k)
+	{element=prit->second.second;
+	maximum=freq;
+	}
+	//checking inside ones jab tak ki start<=r
+	bool endcheck=false;
+	while((it->first<=r)&&(it!=val.end())){
+	 
+	 
+	if((it==val.end())||(it->first>r))
+	endcheck=true;
+	 
+	 
+	if(endcheck==false)
+	{if((it->second.first>maximum)&&(it->second.first>=k))
+	{
+	maximum=it->second.first;
+	element=it->second.second;
+	}}
+	else
+	{ if(it->first!=r)
+	if(((r-(it->first))>=maximum)&&((r-(it->first)>=k)))
+	{
+	maximum=r-(it->first)+1;
+	element=it->second.second;
+	}
+	 
+	}
+	it++;
+	}
+	}
+	 
+	}else{
+	it--;
+	if(it->first<=r){
+	if(it->second.first>=k&&it->second.first>maximum)
+	{
+	maximum=it->second.first;
+	element=it->second.second;
+	}
+	}
+	 
+	}
+	 
+	if(element!=0)
+	cout<<element<<endl;else
+	cout<<"-1"<<endl;
+	 
+	/* 1 1 1 1 2 2 2 2 3 3 3 3*/
+	}
+	 
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

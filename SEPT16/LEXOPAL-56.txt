@@ -1,0 +1,89 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11303521 (JAVA) plaintext list. Status: AC, problem LEXOPAL, contest SEPT16. By yr96 (yr96), 2016-09-02 18:21:14.
+
+	 
+	 
+	import java.util.Scanner;
+	 
+	 
+	class Codechef2 {
+	 
+	
+	public static void main(String[] args) {
+	
+	int n;
+	Scanner s=new Scanner(System.in);
+	n=s.nextInt();
+	while(n-->0)
+	{
+	String ori=s.next();
+	char oris[] = ori.toCharArray(),revs[]=null;
+	StringBuilder sb=new StringBuilder();
+	sb.append(ori);
+	sb.reverse();
+	String rev=sb.toString();
+	revs=rev.toCharArray();
+	int flag=0;
+	for(int i=0;i<oris.length;i++)
+	{
+	char o=oris[i];
+	char r=revs[i];
+	if(o=='.'&&r=='.')
+	{
+	oris[i]='a';
+	revs[i]='a';
+	o=r='a';
+	}
+	
+	if(o==r)
+	continue;
+	if(o=='.'&&r!='.')
+	{ oris[i]=revs[i];continue;}
+	
+	if(o!='.'&&r=='.')
+	{ revs[i]=oris[i];
+	continue;
+	}
+	if(o=='.'&&r=='.')
+	{
+	oris[i]='a';
+	revs[i]='a';
+	continue;
+	}
+	
+	if(o!=r)
+	{
+	break;
+	}
+	
+	}
+	
+	if(new String(oris).equals(new String(revs)))
+	System.out.println(oris);
+	else
+	System.out.println("-1");
+	
+	}
+	
+	
+	}
+	
+	
+	
+	
+	}
+	
+	 
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

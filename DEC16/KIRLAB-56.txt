@@ -1,0 +1,68 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12205844 (C++14) plaintext list. Status: AC, problem KIRLAB, contest DEC16. By yr96 (yr96), 2016-12-06 21:33:34.
+
+	#include<bits/stdc++.h>
+	using namespace std;
+	long long int gcd(long long int a, long long int b) {
+	 
+	if (a == 0)
+	return b;
+	return gcd(b%a, a);
+	}
+	long long choices(vector<long long> *b,long long length, long long rate,long long el)
+	;
+	int main() {
+	long long t; cin>>t;
+	while(t--)
+	{
+	long long n; cin>>n;
+	long long a[n];
+	for(long long i=0;i<n;i++) cin>>a[i];
+	vector<long long> b[n];
+	b[0].push_back(a[0]);
+	long long p=0;
+	for(long long i=1;i<n;i++)
+	{
+	long long k=choices(b,0,p,a[i]);
+	k+=1;
+	if(k>p) p=k;
+	 
+	b[k].push_back(a[i]);
+	}
+	for(long long i=n-1;i>=0;i--)
+	{if(b[i].size()!=0)
+	 
+	{cout<<i+1<<endl;
+	break;
+	}
+	 
+	}
+	}
+	return 0;
+	}
+	long long choices(vector<long long> *b,long long length, long long rate,long long el)
+	{
+	for(long long i=rate;i>=length;i--)
+	{
+	for(long long j=0;j<b[i].size();j++)
+	{
+	if(gcd(b[i][j],el)>1)
+	{
+	return i;
+	}
+	}
+	}
+	return -1;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

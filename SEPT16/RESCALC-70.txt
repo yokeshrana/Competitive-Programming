@@ -1,0 +1,81 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11330162 (JAVA) plaintext list. Status: AC, problem RESCALC, contest SEPT16. By yr96 (yr96), 2016-09-03 16:52:16.
+
+	 
+	import java.util.Arrays;
+	import java.util.HashSet;
+	import java.util.Scanner;
+	 
+	class Codecjhef2 {
+	 
+	public static void main(String[] args) {
+	int t;
+	Scanner scan=new Scanner(System.in);
+	t=scan.nextInt();//fror test casess
+	while(t-->0)
+	{
+	int n=scan.nextInt();//for no of cookies
+	if(n==1) {int p=scan.nextInt();
+	System.out.println("chef");}
+	else
+	{
+	int c[]=new int[n];//array containg toal no of the pt for ith index
+	for(int i=0;i<n;i++)
+	{
+	c[i]=scan.nextInt();
+	HashSet<Integer> distinct = new HashSet<Integer>();
+	for(int j= 0; j< c[i]; j++)
+	distinct.add(scan.nextInt());
+	c[i]+=add(distinct.size());
+	
+	}
+	int max,firstmax=0;
+	max=0;
+	for(int i=0;i<n;i++)
+	if(c[max]<c[i])
+	max=i;
+	firstmax=c[max];
+	Arrays.sort(c);
+	long nextmax=c[n-2];
+	if(firstmax==nextmax)
+	System.out.println("tie");
+	else
+	if(max==0)
+	System.out.println("chef");
+	else
+	System.out.println(max+1);
+	}
+	}
+	
+	
+	
+	
+	
+	}
+	static long add(long n)
+	{
+	if(n>=6)
+	return 4;
+	else
+	if(n>=5)
+	return 2;
+	else
+	if(n>=4)
+	return 1;
+	else
+	return 0;
+	}
+	}
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

@@ -1,0 +1,76 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12191672 (JAVA) plaintext list. Status: WA, problem KIRLAB, contest DEC16. By yr96 (yr96), 2016-12-05 14:39:45.
+
+	/*
+	* To change this license header, choose License Headers in Project Properties.
+	* To change this template file, choose Tools | Templates
+	* and open the template in the editor.
+	*/
+	 
+	 
+	 
+	import java.util.Scanner;
+	 
+	class kirtoinlab {
+	public static void main(String[] args) {
+	
+	
+	Scanner sc=new Scanner(System.in);
+	int t;
+	t=sc.nextInt();
+	while(t-->0){
+	int n=sc.nextInt();
+	int a[]=new int[n];
+	
+	for (int i = 0; i < a.length; i++)
+	a[i]=sc.nextInt();
+	int m=0;
+	int c=1;
+	for(int i=0;i<a.length;i++)
+	{int p=a[i];
+	c=1;
+	for (int j = i+1; j <a.length; j++) {
+	
+	
+	if(gcd(p,a[j])>1)
+	{
+	p=a[j];
+	c++;
+	
+	}
+	if(c>m)
+	m=c;
+	
+	
+	
+	
+	}
+	
+	}
+	
+	
+	System.out.println(m);
+	}
+	
+	}
+	 
+	private static int gcd(int a, int b) {
+	if(b==0)
+	return a;
+	else
+	return gcd(b,a%b);
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

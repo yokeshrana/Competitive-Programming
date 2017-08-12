@@ -1,0 +1,58 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11771591 (C++ 4.3.2) plaintext list. Status: TLE, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-10 20:59:26.
+
+	#include<iostream>
+	#include<string>
+	#include <bitset>
+	using namespace std;
+	int main(){
+	int t;
+	cin>>t;
+	while(t--){
+	string s;
+	cin>>s;
+	string r;
+	cin>>r;
+	string e;
+	cin>>e;
+	int n;
+	cin>>n;
+	while(n--)
+	s.append(r);
+	s.append(e);
+	
+	
+	bitset<1000000000> val(s);
+	// cout<<val<<endl;
+	for(int i=0;i<1000000000;i++)
+	if(val.test(i)==1)
+	val.reset(i);
+	else if(val.test(i)==0){
+	val.set(i);
+	break;
+	}
+	// cout<<val<<endl;
+	cout<<val.count()<<endl;
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	return 0;
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

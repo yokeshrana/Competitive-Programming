@@ -1,0 +1,45 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12613020 (C++ 4.3.2) plaintext list. Status: AC, problem GCD2, contest CODECHEF. By yr96 (yr96), 2017-01-20 23:29:08.
+
+	#include <iostream>
+	#include <cstring>
+	using namespace std;
+	 
+	char arr[1000];
+	int gcd(int a, int b) {
+	if(b==0) return a;
+	else return gcd(b, a%b);
+	}
+	 
+	int mod(int a) {
+	int c=0;
+	for(int i=0; i<strlen(arr); i++) c=((arr[i]-'0')+c*10)%a;
+	return c;
+	}
+	
+	 
+	int main() {
+	
+	int t, a;
+	scanf("%d",&t);
+	while(t--) {
+	cin>>a>>arr;
+	if(a==0) cout<<arr<<endl;
+	else {
+	int d=mod(a);
+	cout<<gcd(a, d)<<endl;
+	}
+	}
+	return 0;
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

@@ -1,0 +1,52 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11300237 (JAVA) plaintext list. Status: WA, problem LONGSEQ, contest SEPT16. By yr96 (yr96), 2016-09-02 16:32:12.
+
+	/* package whatever; // don't place package name! */
+	 
+	import java.util.*;
+	import java.lang.*;
+	import java.io.*;
+	 
+	/* Name of the class has to be "Main" only if the class is public. */
+	class Ideone
+	{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	int n;
+	Scanner s=new Scanner(System.in);
+	n=s.nextInt();
+	while(n-->0)
+	{
+	int no;
+	int c0=0,c1=0,t=0;
+	no=s.nextInt();
+	while(no>0)
+	{
+	t++;
+	int r=no%10;
+	if(r==1)
+	c1++;
+	else
+	c0++;
+	no=no/10;
+	}
+	
+	
+	if(c1==1||c0==1)
+	System.out.println("Yes");
+	else
+	System.out.println("No");
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

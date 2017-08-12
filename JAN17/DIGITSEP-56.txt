@@ -1,0 +1,89 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12599921 (JAVA) plaintext list. Status: CE, problem DIGITSEP, contest JAN17. By yr96 (yr96), 2017-01-18 14:33:05.
+
+	 
+	import java.util.Scanner;
+	 
+	 
+	public class gfgd {
+	static String s;
+	static int n,m,x,y;
+	static int dp[][]=new int[Integer.MAX_VALUE][Integer.MAX_VALUE];
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	
+	while(t-->0)
+	{
+	int i,j;
+	n=sc.nextInt();
+	
+	s=sc.next();
+	m=sc.nextInt();
+	x=sc.nextInt();
+	y=sc.nextInt();
+	for (int k = 0; k < Integer.MAX_VALUE; k++) {
+	for (int l = 0; l < Integer.MAX_VALUE; l++) {
+	dp[k][l]=Integer.MIN_VALUE;
+	
+	}
+	System.out.println(cal(0,0));
+	
+	}
+	
+	
+	
+	
+	
+	}
+	}
+	 
+	private static int cal(int i, int i0) {
+	int r1,r2,cr,maxi=-2;
+	if(dp[i][i0]!=Integer.MAX_VALUE)
+	return dp[i][i0];
+	for (int j = 0; j-i<m&&j<n-1; j++) {
+	r1=r2=-2;
+	cr=getnumber(i,j);
+	if(i0+1<=y)
+	r1=gcd(cr,cal(j+1,i0+1));
+	if(i0+1>=x && i0+1<=y&&n-j-1<=m)
+	r2=gcd(cr,cal(j+1,n-1));
+	int xv=maximu(r1,r2);
+	maxi=maximu(maxi,xv);
+	}
+	return dp[i][i0]=maxi;
+	}
+	 
+	private static int getnumber(int st, int en) {
+	int i,res=0;
+	for (int k = 0; k < dp.length; k++) {
+	res*=10;
+	res+=Integer.parseInt(str[])
+	
+	}
+	
+	
+	}
+	 
+	private static int gcd(int cr, int cal) {
+	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	 
+	private static int maximu(int r1, int r2) {
+	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

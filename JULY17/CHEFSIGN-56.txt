@@ -1,0 +1,74 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14440639 (JAVA) plaintext list. Status: AC, problem CHEFSIGN, contest JULY17. By yr96 (yr96), 2017-07-08 03:40:13.
+
+	 
+	 
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author hexnor
+	*/
+	class Codechef {
+	 
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	int t=s.nextInt();
+	
+	s.nextLine();
+	while(t!=0){
+	String str=s.nextLine();
+	// System.out.println(""+str);
+	str=str.replaceAll("=", "");
+	str=str.replaceAll(">", "1");
+	str=str.replaceAll("<", "0");
+	str=str.trim();
+	if(str.length()==0){
+	System.out.println("1");
+	}else{
+	
+	// System.out.println(str);
+	int maxlength=0,currlength=0;
+	char prev=str.charAt(0),curr;
+	for(int i=0;i<str.length();){
+	curr=str.charAt(i);
+	
+	if(prev==curr)
+	{ currlength++;
+	if(currlength>=maxlength)
+	maxlength=currlength;
+	prev=curr;
+	} else
+	{
+	if(currlength>=maxlength)
+	maxlength=currlength;
+	currlength=1;
+	prev=curr;
+	}
+	
+	i=i+1;
+	}
+	System.out.println(maxlength+1);
+	}
+	
+	
+	
+	
+	t--;
+	}
+	
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

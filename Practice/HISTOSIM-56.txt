@@ -1,0 +1,100 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14610959 (C++14) plaintext list. Status: AC, problem HISTOSIM, contest ISCC2017. By yr96 (yr96), 2017-07-18 23:18:15.
+
+	#include "bits/stdc++.h"
+	 
+	using namespace std;
+	 
+	bool check(string a,
+	string b)
+	{
+	set<char> d, c;
+	 
+	for (int i = 0; i < a.length(); i++)
+	{
+	d.insert(a[i]);
+	c.insert(a[i]);
+	}
+	 
+	if (c.size() != d.size())
+	{
+	return false;
+	}
+	 
+	if (d.size() > 26)
+	{
+	return false;
+	}
+	 
+	map<char, char> mp;
+	 
+	for (char c = 'a'; c <= 'z'; c++)
+	{
+	mp[c] = '?';
+	}
+	 
+	for (long long i = 0; i < a.length(); i++)
+	{
+	if (mp[a[i]] == '?')
+	{
+	mp[a[i]] = b[i];
+	}
+	else
+	{
+	if (mp[a[i]] != b[i])
+	{
+	return false;
+	}
+	}
+	}
+	 
+	return true;
+	}
+	 
+	int main()
+	{
+	ios_base::sync_with_stdio(false);
+	 
+	// cin.tie(NULL);
+	int t;
+	 
+	cin >> t;
+	 
+	while (t--)
+	{
+	string a, b;
+	 
+	cin >> a >> b;
+	 
+	if (a.length() != b.length())
+	{
+	cout << "NO\n";
+	}
+	else
+	{
+	bool val = check(a, b) && check(b, a);
+	 
+	if (val == true)
+	{
+	cout << "YES\n";
+	}
+	else
+	{
+	cout << "NO\n";
+	}
+	}
+	}
+	 
+	return 0;
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

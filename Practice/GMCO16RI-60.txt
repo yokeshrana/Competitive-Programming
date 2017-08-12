@@ -1,0 +1,48 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11859935 (JAVA) plaintext list. Status: WA, problem GMCO16RI, contest GMCO2016. By yr96 (yr96), 2016-10-17 00:07:10.
+
+	 
+	 
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author mgtkne
+	*/
+	class Codechef {
+	 
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	String s=sc.next();
+	
+	if(s.charAt((s.length()-1))=='y')
+	System.out.println("Case #3: "+s+" is ruled by nobody.");
+	else
+	if(s.charAt(s.length()-1)=='a'||s.charAt(s.length()-1)=='e'||s.charAt(s.length()-1)=='i'||s.charAt(s.length()-1)=='o'||s.charAt(s.length()-1)=='u')
+	System.out.println("Case #2: "+s+" is ruled by a queen.");
+	else
+	System.out.println("Case #1: "+s+" is ruled by a king.");
+	
+	
+	
+	
+	
+	
+	}
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

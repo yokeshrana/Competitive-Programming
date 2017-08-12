@@ -1,0 +1,69 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14607431 (C++14) plaintext list. Status: WA, problem HISTOSIM, contest ISCC2017. By yr96 (yr96), 2017-07-18 15:22:45.
+
+	 
+	#include <bits/stdc++.h>
+	using namespace std;
+	int main() {
+	 
+	int t;
+	cin>>t;
+	while(t--){
+	string a,b;
+	cin>>a>>b;
+	vector<int> x,y;
+	
+	int count=1;
+	for(int i=1;i<=a.length();i++){
+	if(a[i]!=a[i-1]){
+	x.push_back(count);count=1; }
+	else
+	count++;
+	}
+	
+	count=1;
+	for(int i=1;i<=b.length();i++){
+	if(b[i]!=b[i-1]){
+	y.push_back(count);count=1; }
+	else
+	count++;
+	}
+	// for(auto c:x)
+	// cout<<c<<" ";
+	// cout<<"\n";
+	// for(auto c:y)
+	// cout<<c<<" ";
+	if(x.size()!=y.size())
+	cout<<"NO\n";
+	else{
+	int flag=0;
+	for(int i=0;i<x.size();i++)
+	if(x[i]!=y[i])
+	{
+	flag=1;
+	break;
+	}
+	if(flag==1)
+	cout<<"NO\n";
+	else
+	cout<<"YES\n";
+	}
+	
+	}
+	
+	
+	return 0;
+	}
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

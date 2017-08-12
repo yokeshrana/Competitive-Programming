@@ -1,0 +1,95 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11783149 (JAVA) plaintext list. Status: AC, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-11 15:29:16.
+
+	import java.math.BigInteger;
+	import java.util.Scanner;
+	 
+	 
+	class Tcs {
+	
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	String a=sc.next(),b=sc.next(),c=sc.next();
+	int d=sc.nextInt();
+	StringBuilder ssa=new StringBuilder("0");
+	StringBuilder ssb=new StringBuilder("");
+	StringBuilder ssc=new StringBuilder("");
+	ssa=ssa.append(a);
+	ssb=ssb.append(b);
+	ssc=ssc.append(c);
+	int lp=1;
+	if(c.contains("0")){
+	ssc=ssc.reverse();
+	ssc=ssc.delete(0,(ssc.indexOf("0")));
+	String l=ssc.toString();
+	l=l.replaceFirst("0","1");
+	//System.out.println(l);
+	l=l.replaceAll("0", "");
+	ssc=new StringBuilder(l);
+	lp=1;
+	}
+	else if(b.contains("0")){
+	ssb=ssb.reverse();
+	ssb=ssb.delete(0,(ssb.indexOf("0")));
+	String l=ssb.toString();
+	l=l.replaceFirst("0","1");
+	//System.out.println(l);
+	l=l.replaceAll("0", "");
+	ssb=new StringBuilder(l);
+	lp=2;
+	}else {
+	
+	ssa=ssa.reverse();
+	ssa=ssa.delete(0,(ssa.indexOf("0")));
+	String l=ssa.toString();
+	l=l.replaceFirst("0","1");
+	//System.out.println(l);
+	l=l.replaceAll("0", "");
+	ssa=new StringBuilder(l);
+	lp=3;
+	}
+	switch (lp) {
+	case 1:
+	{
+	String la=ssa.toString(),lb=ssb.toString(),lc=ssc.toString();
+	la=la.replaceAll("0", "");
+	lb=lb.replaceAll("0", "");
+	lc=lc.replaceAll("0", "");
+	System.out.println(la.length()+(lb.length()*d)+lc.length());
+	break;
+	}
+	case 2:
+	{
+	String la=ssa.toString(),lb=ssb.toString();
+	la=la.replaceAll("0", "");
+	lb=lb.replaceAll("0", "");
+	b=b.replaceAll("0", "");
+	System.out.println(la.length()+lb.length()+(b.length()*(d-1)));
+	break;
+	}
+	default:
+	{
+	String la=ssa.toString();
+	la=la.replaceAll("0", "");
+	System.out.println(la.length());
+	break;
+	}
+	}
+	
+	}
+	} }
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

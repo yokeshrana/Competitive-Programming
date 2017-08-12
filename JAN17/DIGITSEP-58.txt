@@ -1,0 +1,106 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12599855 (C++14) plaintext list. Status: AC, problem DIGITSEP, contest JAN17. By yr96 (yr96), 2017-01-18 14:28:28.
+
+	#include <bits/stdc++.h>
+	using namespace std;
+	#include <iostream>
+	#include <string.h>
+	#include <stdio.h>
+	vector< int> graph[100004]; //input graph
+	vector< int> rev[100004]; // reverse graph
+	int in[100004]={0}; //incoming edges
+	int out[100004]={0}; // outgoing edges
+	int visited[100004]={0};
+	vector< int> sol[100004];
+	int u[200004][3];
+	using namespace std;
+	 
+	/*
+	static long gcd(long a, long b){
+	a = Math.abs(a); b = Math.abs(b);
+	return (b==0) ? a : gcd(b, a%b);
+	}*/
+	 
+	long long int greates(long int a, long int b)
+	{
+	while(b) b ^= a ^= b ^= a %= b;
+	return a;
+	}
+	 
+	/*static long gcd(long a, long b) {
+	long r, i;
+	while(b!=0){
+	r = a % b;
+	a = b;
+	b = r;
+	}
+	return a;
+	}*/
+	long long max(long long a, long long b)
+	{
+	return a > b ? a : b;
+	}
+	 
+	char charte[500];
+	long long dp[500][500];
+	 
+	long long inpuplease(int start, int end)
+	{
+	int i;
+	long long res = 0;
+	for(i = start; i <= end; i++)
+	{
+	res *= 10;
+	res += (long long)(charte[i] -'0');
+	}
+	return res;
+	}
+	int m,n;
+	int x,y;
+	long long check(int pos, int partition)
+	{
+	int i;
+	long long finalval, funcs, cur, maxi = -2;
+	if (dp[pos][partition] != -99999999999)
+	return dp[pos][partition];
+	for (i = pos; i - pos < m && i < n - 1; i++)
+	{
+	finalval = funcs = -2;
+	cur = inpuplease(pos, i);
+	if (partition + 1 <= y)
+	finalval = greates(cur, check(i + 1, partition + 1));
+	if (partition + 1 >= x && partition + 1 <= y && n - i - 1 <= m)
+	funcs = greates(cur, inpuplease(i + 1, n - 1));
+	maxi = max(maxi, max(finalval, funcs));
+	}
+	return dp[pos][partition] = maxi;
+	}
+	 
+	int main()
+	{
+	int test
+	;
+	cin>>test;
+	while(test--)
+	{
+	cin>>n>>charte>>m>>x>>y;
+	 
+	for (int i = 0; i < 500; i++)
+	for (int j = 0; j < 500; j++)
+	dp[i][j] = -99999999999;
+	cout<<check(0,0)<<endl;
+	}
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

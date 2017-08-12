@@ -1,0 +1,76 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12170679 (JAVA) plaintext list. Status: WA, problem KIRLAB, contest DEC16. By yr96 (yr96), 2016-12-03 13:41:44.
+
+	 
+	 
+	 
+	import java.util.Scanner;
+	 
+	class kirtoinlab {
+	public static void main(String[] args) {
+	
+	
+	Scanner sc=new Scanner(System.in);
+	int t;
+	t=sc.nextInt();
+	while(t-->0){
+	int n=sc.nextInt();
+	int a[]=new int[n];
+	
+	for (int i = 0; i < a.length; i++)
+	a[i]=sc.nextInt();
+	int j=0,m=0;
+	for (int i = 0; i < a.length;i++) {
+	for (int k = i+1; k <=i+3&&k<a.length; k++) {
+	if(j>m)
+	{ m=j;}
+	if(k==i+3)
+	{if(j>m)
+	m=j;
+	j=0;
+	
+	break;}
+	if(gcd(a[i],a[k])>1)
+	{
+	if(j==0)
+	j++;
+	j++;
+	//System.out.println("j="+j+" "+a[i]+" "+a[k]);
+	break;
+	}
+	
+	
+	
+	}
+	
+	}
+	
+	if(j>m)
+	{ m=j;
+	j=0;
+	}
+	System.out.println(m);
+	}
+	
+	}
+	 
+	private static int gcd(int a, int b) {
+	if(b==0)
+	return a;
+	else
+	return gcd(b,a%b);
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

@@ -1,0 +1,54 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11716881 (C++ 6.3) plaintext list. Status: WA, problem CHEFKEY, contest OCT16. By yr96 (yr96), 2016-10-07 19:38:07.
+
+	#include<iostream>
+	#include<cstdio>
+	 
+	using namespace std;
+	 
+	int main(){
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	long xmax,ymax,color;
+	long count=0;
+	 
+	cin>>xmax>>ymax>>color;
+	int a[1000];
+	int index=0;
+	for(int i=1,j=0;i<=color;i++)
+	if(color%i==0)
+	{
+	a[j++]=i;
+	index=j;
+	}
+	for(register int i=1;i<index;i++)
+	for(register int j=1;j<index;j++)
+	{
+	if(a[i]>xmax||a[j]>ymax)
+	continue;
+	if(a[i]*a[j]==color)
+	count++;
+	 
+	}
+	 
+	 
+	cout<<count<<endl;
+	}
+	return 0;
+	 
+	 
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

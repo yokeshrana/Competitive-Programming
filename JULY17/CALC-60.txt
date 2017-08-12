@@ -1,0 +1,81 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14551094 (JAVA) plaintext list. Status: AC, problem CALC, contest JULY17. By yr96 (yr96), 2017-07-14 17:43:05.
+
+	 
+	import java.util.Scanner;
+	 
+	 
+	 
+	class Code2 {
+	 
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	int n=sc.nextInt(), b=sc.nextInt(),ans=0,temp,temp2;
+	
+	if(b>=n||n==0||b==0||b<0){
+	System.out.println("0");
+	}
+	else
+	{
+	temp=(n/2)-((n/2)%b);
+	//System.out.println(var);
+	// int p=1;
+	// if(n%b==0){
+	// for(int j=(n/b-1);j>=1;j--){
+	// p=j*(n-(b*j));
+	// if(p>=ans)
+	// ans=p;
+	// else if(p<ans)
+	// break;
+	// }
+	// }else{
+	// for(int j=n/b;j>=1;j--){
+	// p=j*(n-(b*j));
+	//
+	// if(p>=ans)
+	// ans=p;
+	// else if(p<ans)
+	// break;
+	// }
+	// }
+	
+	while(temp<=(n/2)){
+	temp2=(n-temp)*(temp/b);
+	if(ans<=temp2)
+	ans=temp2;
+	temp=temp+b;
+	}
+	temp2=(n-temp)*(temp/b);
+	if(ans<=temp2)
+	ans=temp2;
+	
+	
+	System.out.println(ans);
+	}
+	
+	
+	
+	}
+	
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

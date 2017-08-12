@@ -1,0 +1,58 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14597609 (JAVA) plaintext list. Status: AC, problem TRAVERSE, contest ISCC2017. By yr96 (yr96), 2017-07-17 19:12:20.
+
+	
+	
+	import java.math.BigDecimal;
+	import java.text.DecimalFormat;
+	import java.util.Scanner;
+	
+	
+	
+	class Codechef {
+	
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	
+	while(t-->0){
+	int x=0,y=0;
+	
+	int val=sc.nextInt();
+	boolean flag=true;
+	while(val>0)
+	{if(flag==true)
+	{
+	x++;
+	flag=false;
+	val--;
+	}else
+	{
+	y=y+1;
+	val--;
+	if(val==0)
+	break;
+	y=y+1;
+	val--;
+	flag=true;
+	}
+	
+	}
+	System.out.println(x+" "+y);
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

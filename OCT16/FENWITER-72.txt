@@ -1,0 +1,78 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11770639 (C++14) plaintext list. Status: WA, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-10 19:59:03.
+
+	#include<iostream>
+	#include<string>
+	#include <bitset>
+	using namespace std;
+	int main(){
+	int t;
+	cin>>t;
+	while(t--){
+	string s;
+	cin>>s;
+	string r;
+	cin>>r;
+	string e;
+	cin>>e;
+	int n;
+	cin>>n;
+	
+	
+	bitset<1000> end(e),mid(r),start(s);
+	bool flag=0;
+	// cout<<val<<endl;
+	for(int i=0;i<1000;i++)
+	if(end.test(i)==1)
+	end.reset(i);
+	else if(end.test(i)==0){
+	end.set(i);
+	flag=1;
+	break;
+	}
+	if(flag==0)
+	for(int i=0;i<1000;i++)
+	if(mid.test(i)==1)
+	mid.reset(i);
+	else if(mid.test(i)==0){
+	mid.set(i);
+	flag=1;
+	break;
+	}
+	if(flag==0)
+	for(int i=0;i<1000;i++)
+	if(start.test(i)==1)
+	start.reset(i);
+	else if(start.test(i)==0){
+	start.set(i);
+	flag=1;
+	break;
+	}
+	
+	
+	cout<<start.count()+(mid.count()*n)+end.count()<<endl;
+	}
+	// cout<<val<<endl;
+	
+	
+	
+	
+	
+	return 0;
+	
+	
+	
+	}
+	
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

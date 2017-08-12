@@ -1,0 +1,67 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14551648 (C++14) plaintext list. Status: AC, problem CALC, contest JULY17. By yr96 (yr96), 2017-07-14 18:30:45.
+
+	#include<bits/stdc++.h>
+	 
+	using namespace std;
+	 
+	int main()
+	{
+	long long int t;
+	 
+	cin >> t;
+	 
+	while (t--)
+	{
+	long long int n, b,ans=1;
+	 
+	cin >> n >> b;
+	if(b>n||n==0||b==0){
+	cout<<"0"<<endl;
+	}
+	else
+	{
+	long long int c=0;
+	long long int temp=n/2,i;
+	if(temp%b==0){
+	for( i=temp;i<=n/2;i=i+b)
+	if(c<((n-i)*(i/b)))
+	{
+	long long var=(n-i);
+	c=(i/b)*var;
+	}
+	temp=i;
+	}else{
+	temp=temp-(temp%b);
+	for( i=temp;i<=n/2;i=i+b)
+	if(c<((n-i)*(i/b)))
+	{
+	long long var=(n-i);
+	c=(i/b)*var;
+	}
+	temp=i;
+	}
+	if(c<((n-i)*(i/b)))
+	c=((n-i)*(i/b));
+	 
+	 
+	cout<<c<<endl;
+	}
+	}
+	 
+	return 0;
+	}
+	 
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

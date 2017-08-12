@@ -1,0 +1,79 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14594706 (C++14) plaintext list. Status: CE, problem CALC, contest JULY17. By yr96 (yr96), 2017-07-17 14:59:45.
+
+	
+	
+	import java.util.Scanner;
+	
+	
+	
+	class Codechef {
+	
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	int n=sc.nextInt(), b=sc.nextInt(),ans=1;
+	
+	if(b>=n||n==0||b==0||b<0){
+	System.out.println("0");
+	}
+	else
+	{
+	int c=0;
+	int temp=n/2,i;
+	if(temp%b==0)
+	for( i=temp;i<=n/2;i=i+b)
+	{ int fb=i/b;
+	fb=fb*(n-1);
+	
+	if(c<fb)
+	{
+	int var=(n-i);
+	c=(i/b);
+	c=c*var;
+	
+	}
+	temp=i;
+	}else{
+	temp=temp-(temp%b);
+	for( i=temp;i<=n/2;i=i+b)
+	{ int fb=i/b;
+	fb=fb*(n-1);
+	
+	if(c<fb)
+	{
+	int var=(n-i);
+	c=(i/b);
+	c=c*var;
+	
+	}
+	temp=i;
+	}
+	}
+	int fb=i/b;
+	fb=fb*(n-1);
+	if(c<(fb))
+	c=fb;
+	System.out.println(ans);
+	}
+	
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

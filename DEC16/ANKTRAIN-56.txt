@@ -1,0 +1,64 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12162569 (JAVA) plaintext list. Status: AC, problem ANKTRAIN, contest DEC16. By yr96 (yr96), 2016-12-02 18:58:26.
+
+	/*
+	* To change this license header, choose License Headers in Project Properties.
+	* To change this template file, choose Tools | Templates
+	* and open the template in the editor.
+	
+	package december; */
+	 
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author yokesh
+	*/
+	class TRainpartenet {
+	 
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	
+	Scanner sc=new Scanner(System.in);
+	int t;
+	t=sc.nextInt();
+	while(t-->0){
+	int n=sc.nextInt();
+	
+	int d=n/8;
+	int m=n%8;
+	if(m==1)
+	System.out.println((8*d+m+3)+"LB");else
+	if(m==2)
+	System.out.println((8*d+m+3)+"MB");else
+	if(m==3)
+	System.out.println((8*d+m+3)+"UB");else
+	if(m==4)
+	System.out.println((8*d+m-3)+"LB");else
+	if(m==5)
+	System.out.println((8*d+m-3)+"MB");else
+	if(m==6)
+	System.out.println((8*d+m-3)+"UB");else
+	if(m==7)
+	System.out.println((8*d+m+1)+"SU");else
+	
+	System.out.println((8*d+m-1)+"SL");
+	
+	}
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

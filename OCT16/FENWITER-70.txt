@@ -1,0 +1,89 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11771535 (JAVA) plaintext list. Status: CE, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-10 20:56:08.
+
+	#include<iostream>
+	#include<string>
+	#include <bitset>
+	using namespace std;
+	int main(){
+	int t;
+	cin>>t;
+	while(t--){
+	string s;
+	cin>>s;
+	string r;
+	cin>>r;
+	string e;
+	cin>>e;
+	int n;
+	cin>>n;
+	
+	int le=e.length(),lr=r.length()
+	,ls=s.length()+1;
+	int flag=0;
+	// cout<<val<<endl;
+	for(int i=le-1;i>=0;i--)
+	if(e[i]=='1')
+	e[i]='0';
+	else if(e[i]=='0'){
+	e[i]='1';
+	flag=1;
+	break;
+	}
+	if(flag==0)
+	for(int i=lr-1;i>=0;i--)
+	if(r[i]=='1')
+	r[i]='0';
+	else if(r[i]=='0'){
+	r[i]='1';
+	flag=1;
+	break;
+	}
+	if(flag==0)
+	for(int i=ls-1;i>=0;i--)
+	if(s[i]=='1')
+	s[i]='0';
+	else if(s[i]=='0'){
+	s[i]='1';
+	flag=1;
+	break;
+	}
+	int count=0;
+	for(int i=0;i<ls;i++)
+	if(s[i]=='1')
+	count++;
+	for(int i=0;i<le;i++)
+	if(e[i]=='1')
+	count++;
+	for(int i=0;i<lr;i++)
+	if(r[i]=='1')
+	count+=n;
+	cout<<count<<endl;
+	}
+	
+	
+	
+	// cout<<val<<endl;
+	
+	
+	
+	
+	
+	return 0;
+	
+	
+	
+	}
+	
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

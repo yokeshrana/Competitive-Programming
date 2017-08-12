@@ -1,0 +1,106 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11417836 (JAVA) plaintext list. Status: AC, problem RESCALC, contest SEPT16. By yr96 (yr96), 2016-09-07 18:19:49.
+
+	 
+	 
+	import java.util.Arrays;
+	import java.util.HashMap;
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author y
+	*/
+	class Co {
+	 
+	/**
+	* @param args the command line arguments
+	*/
+	public static void main(String[] args) {
+	Scanner scan=new Scanner(System.in);
+	int t=scan.nextInt();
+	while(t-->0)
+	{
+	
+	int cookie=scan.nextInt();
+	int c[]=new int[cookie];
+	for(int l=0;l<c.length;l++)
+	{ c[l]=scan.nextInt();
+	HashMap<Integer,Integer> h=new HashMap<Integer,Integer>();
+	
+	for(int i=0;i<c[l];i++)
+	{
+	{ int temp=scan.nextInt();
+	
+	if (h.containsKey(temp)) {
+	int count = h.get(temp);
+	h.put(temp, count+1);
+	} else {
+	h.put(temp, 1);
+	}
+	}
+	
+	
+	}int k=0;
+	
+	int a[]=new int[6];
+	for (Integer value : h.values())
+	a[k++]=value;
+	Arrays.sort(a);
+	// for(int i=0;i<a.length;i++)
+	// System.out.print(a[i]+" ");
+	//
+	// System.out.println(" ");
+	int q=a[0],w=a[1],e=a[2];
+	c[l]+=4*q;
+	w-=q;e-=q;
+	c[l]+=2*w;
+	e-=w;
+	c[l]+=e;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	int max,firstmax=0;
+	max=0;
+	for(int i=0;i<c.length;i++)
+	if(c[max]<c[i])
+	max=i;
+	firstmax=c[max];
+	Arrays.sort(c);
+	long nextmax;
+	if(c.length!=1)
+	nextmax =c[c.length-2];
+	else
+	nextmax=0;
+	if(firstmax==nextmax)
+	System.out.println("tie");
+	else
+	if(max==0)
+	System.out.println("chef");
+	else
+	System.out.println(max+1);
+	
+	}
+	}
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

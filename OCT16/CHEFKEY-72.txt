@@ -1,0 +1,63 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11716595 (C++ 6.3) plaintext list. Status: AC, problem CHEFKEY, contest OCT16. By yr96 (yr96), 2016-10-07 19:23:06.
+
+	#include<iostream>
+	#include<cstdio>
+	using namespace std;
+	 
+	inline void fastRead_int(int &x) {
+	register int c = getchar_unlocked();
+	x = 0;
+	int neg = 0;
+	 
+	for(; ((c<48 || c>57) && c != '-'); c = getchar_unlocked());
+	 
+	if(c=='-') {
+	neg = 1;
+	c = getchar_unlocked();
+	}
+	 
+	for(; c>47 && c<58 ; c = getchar_unlocked()) {
+	x = (x<<1) + (x<<3) + c - 48;
+	}
+	 
+	if(neg)
+	x = -x;
+	}
+	 
+	int main(){
+	int t;
+	//cin>>t;
+	fastRead_int(t);
+	while(t--)
+	{
+	int xmax,ymax,color;
+	int count=0;
+	// cin>>xmax>>ymax>>color;
+	fastRead_int(xmax); fastRead_int(ymax); fastRead_int(color);
+	for(register int i=1;i<=xmax;i++)
+	for(register int j=1;j<=ymax;j++)
+	{
+	if(i*j==color)
+	count++;
+	 
+	}
+	 
+	 
+	cout<<count<<endl;
+	}
+	return 0;
+	 
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

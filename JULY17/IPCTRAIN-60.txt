@@ -1,0 +1,85 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 14555935 (C++14) plaintext list. Status: CE, problem IPCTRAIN, contest JULY17. By yr96 (yr96), 2017-07-15 00:34:19.
+
+	#include<bits/stdc++.h>
+	 
+	using namespace std;
+	 
+	int read(){
+	int ans=0,f=1,c=getchar();
+	while(c<'0'||c>'9'){if(c=='-') f=-1; c=getchar();}
+	while(c>='0'&&c<='9'){ans=ans*10+(c-'0'); c=getchar();}
+	return ans*f;
+	}
+	 
+	int main()
+	{
+	long long int t;
+	 
+	cin >> t;
+	 
+	while (t--)
+	{
+	 
+	long long int n=read(),d=read();
+	 
+	vector<long long int> vis;
+	for(int i=1;i<=d;i++)
+	vis.push_back(i);
+	long long int visited[d+1]{0};
+	multimap<long long int,pair<long long int,long long int>,greater<long long int>> mp;
+	multimap<long long int,pair<long long int,long long int>> ::iterator it;
+	while(n--){
+	long long int sd=read(),lec=read(),sadness=read();
+	 
+	mp.insert(make_pair(sadness,make_pair(sd,lec)));
+	}
+	for(it=mp.begin();it!=mp.end();it++)
+	{
+	long long int sde=it->second.first,lece=it->second.second,sadnesse=it->first;
+	vis[]
+	}
+	long long int sum=0;
+	for(int i=1;i<=d;i++)
+	{
+	 
+	 
+	}
+	 
+	 
+	for(it=mp.begin();it!=mp.end();it++)
+	{
+	long long int sde=it->second.first,lece=it->second.second,sadnesse=it->first;
+	 
+	for(long long int i=sde;i<=d;i++){
+	if(visited[i]==0)
+	{
+	if(lece==0)
+	break;
+	// cout<<lece<<endl;
+	visited[i]=1;
+	lece--;
+	}
+	}
+	sum+=lece*sadnesse;
+	 
+	}
+	cout<<sum<<endl;
+	 
+	}
+	return 0;
+	}
+	 
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

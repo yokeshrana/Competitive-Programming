@@ -1,0 +1,54 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12522193 (JAVA) plaintext list. Status: WA, problem CATSDOGS, contest JAN17. By yr96 (yr96), 2017-01-12 19:30:58.
+
+	 
+	 
+	/**
+	*
+	* @author yokes
+	*/
+	 
+	import java.util.Scanner;
+	 
+	class COdechefjan {
+	 
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	int c=sc.nextInt(),d=sc.nextInt(),l=sc.nextInt();
+	int flag=0;
+	if(4*d<=l)
+	if(l%2==0)
+	if(d>=c)
+	flag=1;
+	else
+	if(l>=4*d&&l%2==0)
+	if(d<c)
+	{
+	if(l>=((4*((2*c)-d))+4*d))
+	flag=1;
+	else
+	flag=0;
+	}
+	else
+	flag=0;
+	
+	if(flag==1)
+	System.out.println("yes");
+	else
+	System.out.println("no");
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

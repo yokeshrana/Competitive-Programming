@@ -1,0 +1,60 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12802655 (C++14) plaintext list. Status: WA, problem MAKETRI, contest FEB17. By yr96 (yr96), 2017-02-10 20:41:06.
+
+	#include<bits/stdc++.h>
+	using namespace std;
+	int main(){
+	long long int N,L,R;
+	cin>>N>>L>>R;
+	vector <int> arr;
+	vector <int>:: iterator it=arr.begin();
+	map<int,int> maps;
+	map<int,int> ::iterator im=maps.begin();
+	for (int i=0;i<N;i++)
+	{
+	int val;
+	cin>>val;
+	arr.push_back(val);
+	};
+	sort(arr.begin(),arr.end());
+	int min,max,count=0;;
+	for(it=arr.begin();it!=arr.end()-1;it++)
+	{
+	min=*(it+1)-*(it)+1;
+	max=*(it+1)+*(it)-1;
+	im=maps.find(min);
+	if(min>=L&&max<=R)
+	if(im!=maps.end())
+	{if((*im).second>max)
+	{ max=im->second;
+	
+	}
+	maps.erase(im);
+	maps.insert(make_pair(min,max));
+	//cout<<"inserting 1 "<<min<<" "<<max<<endl;
+	}
+	else
+	{maps.insert(make_pair(min,max));
+	//cout<<"inserting 2 "<<min<<" "<<max<<endl;
+	}
+	}
+	for(im=maps.begin();im!=maps.end();im++){
+	//cout<<im->first<<" "<<im->second <<endl;
+	count+=(im->second)-(im->first)+1;
+	}
+	cout<<count;
+	return 0;
+	 
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

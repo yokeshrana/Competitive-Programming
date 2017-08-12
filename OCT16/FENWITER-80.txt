@@ -1,0 +1,67 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11768953 (JAVA) plaintext list. Status: AC, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-10 17:57:27.
+
+	 
+	import java.math.BigInteger;
+	import java.util.BitSet;
+	import java.util.Scanner;
+	 
+	 
+	class Sparsearray {
+	private static BitSet createFromString(String s) {
+	BitSet t = new BitSet(s.length());
+	int lastBitIndex = s.length() - 1;
+	 
+	for (int i = lastBitIndex; i >= 0; i--) {
+	if ( s.charAt(i) == '1'){
+	t.set(lastBitIndex - i);
+	}
+	}
+	 
+	return t;
+	}
+	 
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	String a=sc.next(),b=sc.next(),c=sc.next();
+	int d=sc.nextInt();
+	String s="";
+	s=s.concat(a);
+	while(d-->0)
+	s=s.concat(b);
+	s=s.concat(c);
+	BigInteger i=new BigInteger(s,2);
+	int count=0;
+	i=i.and(i.add((BigInteger.ONE)));
+	
+	while(true){
+	if(i.signum() == 0)
+	break;
+	i=i.and(i.subtract(BigInteger.ONE));
+	
+	
+	count++;
+	}
+	count=count+1;
+	System.out.println(count);
+	
+	}
+	
+	}
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

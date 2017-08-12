@@ -1,0 +1,183 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12840464 (C++14) plaintext list. Status: WA, problem MFREQ, contest FEB17. By yr96 (yr96), 2017-02-13 21:24:27.
+
+	#include <bits/stdc++.h>
+	using namespace std;
+	 
+	/* fast io refer to https://discuss.codechef.com/questions/6677/cool-fast-io-implementation */
+	static struct IO {
+	char tmp[1 << 10];
+	 
+	// fast input routines
+	char cur;
+	 
+	//#define nextChar() (cur = getc_unlocked(stdin))
+	//#define peekChar() (cur)
+	inline char nextChar() { return cur = getc_unlocked(stdin); }
+	inline char peekChar() { return cur; }
+	 
+	inline operator bool() { return peekChar(); }
+	inline static bool isBlank(char c) { return (c < '-' && c); }
+	inline bool skipBlanks() { while (isBlank(nextChar())); return peekChar() != 0; }
+	 
+	inline IO& operator >> (char & c) { c = nextChar(); return *this; }
+	 
+	inline IO& operator >> (char * buf) {
+	if (skipBlanks()) {
+	if (peekChar()) {
+	*(buf++) = peekChar();
+	while (!isBlank(nextChar())) *(buf++) = peekChar();
+	} *(buf++) = 0; } return *this; }
+	 
+	inline IO& operator >> (string & s) {
+	if (skipBlanks()) { s.clear(); s += peekChar();
+	while (!isBlank(nextChar())) s += peekChar(); }
+	return *this; }
+	 
+	inline IO& operator >> (double & d) { if ((*this) >> tmp) sscanf(tmp, "%lf", &d); return *this; }
+	 
+	#define defineInFor(intType) \
+	inline IO& operator >>(intType & n) { \
+	if (skipBlanks()) { \
+	int sign = +1; \
+	if (peekChar() == '-') { \
+	sign = -1; \
+	n = nextChar() - '0'; \
+	} else \
+	n = peekChar() - '0'; \
+	while (!isBlank(nextChar())) { \
+	n += n + (n << 3) + peekChar() - 48; \
+	} \
+	n *= sign; \
+	} \
+	return *this; \
+	}
+	 
+	defineInFor(int)
+	defineInFor(unsigned int)
+	defineInFor(long long)
+	 
+	// fast output routines
+	 
+	//#define putChar(c) putc_unlocked((c), stdout)
+	inline void putChar(char c) { putc_unlocked(c, stdout); }
+	inline IO& operator << (char c) { putChar(c); return *this; }
+	inline IO& operator << (const char * s) { while (*s) putChar(*s++); return *this; }
+	 
+	inline IO& operator << (const string & s) { for (int i = 0; i < (int)s.size(); ++i) putChar(s[i]); return *this; }
+	 
+	char * toString(double d) { sprintf(tmp, "%lf%c", d, '\0'); return tmp; }
+	inline IO& operator << (double d) { return (*this) << toString(d); }
+	 
+	 
+	#define defineOutFor(intType) \
+	inline char * toString(intType n) { \
+	char * p = (tmp + 30); \
+	if (n) { \
+	bool isNeg = 0; \
+	if (n < 0) isNeg = 1, n = -n; \
+	while (n) \
+	*--p = (n % 10) + '0', n /= 10; \
+	if (isNeg) *--p = '-'; \
+	} else *--p = '0'; \
+	return p; \
+	} \
+	inline IO& operator << (intType n) { return (*this) << toString(n); }
+	 
+	defineOutFor(int)
+	defineOutFor(long long)
+	 
+	#define endl ('\n')
+	#define cout __io__
+	#define cin __io__
+	} __io__;
+	struct node
+	{
+	int pv,sv,value,res,pre,suf;
+	node(){
+	value=res = pre = suf = sv = pv = 0;
+	}
+	node(int val){
+	res = pre = suf =1;
+	value=sv = pv = val;
+	}
+	void merge(node a,node b)
+	{
+	 
+	pv = a.pv;
+	sv = b.sv;
+	pre = a.pre;
+	suf = b.suf;
+	if(a.sv == b.sv)
+	suf = a.suf + b.suf;
+	if(a.pv == b.pv )
+	pre = a.pre + b.pre;
+	res = max(a.res,b.res);
+	if(res==a.res)value=a.value;else value=b.value;
+	if(a.sv == b.pv)
+	{//res = max(res , a.suf + b.pre);
+	if(res<a.suf+b.pre)
+	{res=a.suf+b.pre;value=a.sv;} }
+	}
+	 
+	}segmenttreee[500000];
+	void create(int pos)
+	{
+	pos>>=1;
+	while(pos){
+	segmenttreee[pos].merge(segmenttreee[pos<<1],segmenttreee[(pos<<1)+1]);
+	pos>>=1;
+	}
+	}
+	node query(int root,int l_most,int r_most,int l,int r)
+	{
+	if(l_most >= l && r_most <= r)
+	return segmenttreee[root];
+	int l_child = (root<<1) , r_child = l_child + 1,mid = (l_most + r_most )>>1;
+	node left=node(),right = node();
+	if(l<=mid)
+	left = query(l_child,l_most,mid,l,r);
+	if(r>mid)
+	right = query(r_child,mid+1,r_most,l,r);;
+	node temp = node();
+	temp.merge(left,right);
+	return temp;
+	}
+	int main()
+	{
+	int n,q;
+	 
+	cin>>n;
+	//if (n==0) break;
+	cin>>q;
+	int k = ceil(log(n)/log(2));
+	int pos = (1<<k),temp;
+	for(int i=0;i<n;i++){
+	cin>>temp;
+	segmenttreee[pos+i] = node(temp);
+	create(pos+i);
+	}
+	for(int i=0;i<q;i++){
+	int l,r,k;
+	cin>>l>>r>>k;
+	struct node a=query(1,1,pos,l,r);
+	if(k<=a.res)
+	cout<<a.value<<endl;
+	else
+	cout<<-1<<endl;
+	}
+	return 0;
+	}
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

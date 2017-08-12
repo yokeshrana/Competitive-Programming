@@ -1,0 +1,76 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 9364721 (C) plaintext list. Status: AC, problem ONP, contest CODECHEF. By yr96 (yr96), 2016-02-09 22:02:09.
+
+	#include<stdio.h>
+	char stack[20];
+	int top = -1;
+	void push(char x)
+	{
+	stack[++top] = x;
+	}
+	 
+	char pop()
+	{
+	if(top == -1)
+	return -1;
+	else
+	return stack[top--];
+	}
+	 
+	int priority(char x)
+	{
+	if(x == '(')
+	return 0;
+	if(x == '+' || x == '-')
+	return 1;
+	if(x == '*' || x == '/')
+	return 2;
+	}
+	 
+	main()
+	{
+	int t;
+	scanf("%d",&t);
+	while(t-->0){
+	char exp[400];
+	char *e, x;
+	scanf("%s",exp);
+	e = exp;
+	while(*e != '\0')
+	{
+	if(isalnum(*e))
+	printf("%c",*e);
+	else if(*e == '(')
+	push(*e);
+	else if(*e == ')')
+	{
+	while((x = pop()) != '(')
+	printf("%c", x);
+	}
+	else
+	{
+	while(priority(stack[top]) >= priority(*e))
+	printf("%c",pop());
+	push(*e);
+	}
+	e++;
+	}
+	while(top != -1)
+	{
+	printf("%c",pop());
+	}printf("\n");
+	}
+	 
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

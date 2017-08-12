@@ -1,0 +1,220 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11788292 (C) plaintext list. Status: AC, problem GEOCHEAT, contest OCT16. By yr96 (yr96), 2016-10-11 22:14:36.
+
+	 
+	#include "stdio.h"
+	struct Point_dvr
+	{
+	int x;
+	int y;
+	};
+	int last_index_explored,farthest_index=0;
+	
+	int xcentretwice,ycentretwice;
+	
+	long long dia_sq;
+	
+	struct Point_dvr Point_set[100000];
+	
+	void InitGlobals(void)
+	{
+	last_index_explored = farthest_index = 0;
+	dia_sq = 0;
+	}
+	long long FindCascadingFarthest(int start, int n)
+	{
+	int i,j,index;
+	long long dist_sq=0,dist_sq_tmp,dist_sq1,diff_x,diff_y,x,y,x_sq,y_sq;
+	
+	x = Point_set[start].x;
+	y = Point_set[start].y;
+	for(i=start;i<(n-1);i++)
+	{
+	/*Find the farthest point from the i-th point*/
+	index = i;
+	
+	for(j=(i+1);j<n;j++)
+	{
+	diff_x = x - Point_set[j].x;
+	diff_y = y - Point_set[j].y;
+	x_sq = diff_x*diff_x;
+	y_sq = diff_y*diff_y;
+	dist_sq_tmp = x_sq + y_sq;
+	if( dist_sq_tmp > dist_sq )
+	{
+	dist_sq = dist_sq_tmp;
+	index = j;
+	}
+	}
+	if( index == i )
+	{
+	break;
+	}
+	else
+	{
+	/*swap the point at "index" with index i+1 */
+	x = Point_set[index].x;
+	y = Point_set[index].y;
+	if( index != (i+1) )
+	{
+	Point_set[index].x = Point_set[i+1].x;
+	Point_set[index].y = Point_set[i+1].y;
+	Point_set[i+1].x = x;
+	Point_set[i+1].y = y;
+	}
+	}
+	}
+	
+	if( i != (n-1) )
+	last_index_explored = i;
+	else
+	{
+	last_index_explored = i-1;
+	}
+	return dist_sq;
+	}
+	
+	char IsOutsideCircle(int j, long long * dist_sq)
+	{
+	long long diff_x,diff_y,x_sq,y_sq;
+	
+	diff_x = 2*Point_set[j].x - xcentretwice;
+	diff_y = 2*Point_set[j].y - ycentretwice;
+	x_sq = (diff_x*diff_x);
+	y_sq = (diff_y*diff_y);
+	*dist_sq = x_sq + y_sq;
+	
+	if( (*dist_sq) > dia_sq )
+	return 1;
+	return 0;
+	}
+	
+	long long FinalCheck(int n, long long farth_dist)
+	{
+	int i,j,part;
+	int nPointsOutsideCircle=0;
+	long long dist_sq,diff_x,diff_y,dist_sq_tmp,dist_sq_final;
+	
+	dist_sq_final = farth_dist;
+	
+	xcentretwice = Point_set[farthest_index].x + Point_set[farthest_index-1].x;
+	ycentretwice = Point_set[farthest_index].y + Point_set[farthest_index-1].y;
+	
+	for(i=(last_index_explored+1);i<n;i++)
+	{
+	if(IsOutsideCircle(i,&dist_sq))
+	{
+	nPointsOutsideCircle++;
+	for(j=(i+1);j<n;j++)
+	{
+	diff_x = Point_set[i].x - Point_set[j].x;
+	diff_y = Point_set[i].y - Point_set[j].y;
+	dist_sq_tmp = (diff_x*diff_x) + (diff_y*diff_y);
+	if( dist_sq_tmp > dist_sq_final )
+	{
+	dist_sq_final = dist_sq_tmp;
+	exit(1);
+	}
+	}
+	}
+	}
+	
+	return dist_sq_final;
+	}
+	
+	long long FindDistanceSquareFarthestPoints( int n )
+	{
+	int i,j,index,x,y,part,explored_partition_count=0;
+	long long dist_sq=0,farthest_dist=0,dist_sq_tmp;
+	char bAllPointsInsideCircle=1;
+	int nPointsOutsideCircle=0;
+	
+	InitGlobals();
+	
+	farthest_dist = dia_sq = FindCascadingFarthest(0,n);
+	
+	farthest_index = last_index_explored;
+	
+	if( last_index_explored > 0 )
+	{
+	xcentretwice = Point_set[last_index_explored].x + Point_set[last_index_explored-1].x;
+	ycentretwice = Point_set[last_index_explored].y + Point_set[last_index_explored-1].y;
+	
+	for(i=(last_index_explored+1);i<n;i++)
+	{
+	if( i <= last_index_explored )
+	i = last_index_explored + 1;
+	if(IsOutsideCircle(i,&dist_sq_tmp))
+	{
+	
+	nPointsOutsideCircle++;
+	if( bAllPointsInsideCircle )
+	bAllPointsInsideCircle = 0;
+	
+	/*swap last_explored, i*/
+	x = Point_set[last_index_explored+1].x;
+	y = Point_set[last_index_explored+1].y;
+	
+	if( (last_index_explored+1) != i )
+	{
+	Point_set[last_index_explored+1].x = Point_set[i].x;
+	Point_set[last_index_explored+1].y = Point_set[i].y;
+	Point_set[i].x = x;
+	Point_set[i].y = y;
+	}
+	
+	dist_sq_tmp = FindCascadingFarthest(last_index_explored+1,n);
+	if( dist_sq_tmp > farthest_dist )
+	{
+	farthest_dist = dist_sq_tmp;
+	farthest_index = last_index_explored;
+	}
+	
+	}
+	
+	}
+	}
+	dia_sq = farthest_dist;
+	
+	if( bAllPointsInsideCircle )
+	{
+	return farthest_dist;
+	}
+	
+	farthest_dist = FinalCheck(n,farthest_dist);
+	return farthest_dist;
+	}
+	
+	int main(void)
+	{
+	int t,n,i,x,y;
+	
+	long long dist;
+	
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+	scanf("%d%d",&x,&y);
+	Point_set[i].x = x;
+	Point_set[i].y = y;
+	if(i!=0){
+	
+	dist = FindDistanceSquareFarthestPoints(i+1);
+	printf("%lld\n",dist);}else
+	printf("0\n");
+	}
+	
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

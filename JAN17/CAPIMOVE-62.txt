@@ -1,0 +1,62 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12531473 (JAVA) plaintext list. Status: AC, problem CAPIMOVE, contest JAN17. By yr96 (yr96), 2017-01-13 13:02:22.
+
+	 
+	import java.util.Arrays;
+	import java.util.Collections;
+	import java.util.HashSet;
+	import java.util.Iterator;
+	import java.util.Scanner;
+	import java.util.SortedMap;
+	import java.util.TreeMap;
+	 
+	 
+	class infection {
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	int nodes=sc.nextInt();
+	
+	SortedMap<Integer, Integer> map = new TreeMap<>();
+	HashSet<Integer> []adj = new HashSet[nodes];
+	for (int i = 0; i < nodes; i++) {
+	map.put(sc.nextInt(), i);
+	adj[i]=new HashSet<Integer>();
+	}
+	
+	for (int i = 0; i < nodes-1; i++) {
+	
+	int v=sc.nextInt()-1;
+	int u=sc.nextInt()-1;
+	adj[v].add(u);
+	adj[u].add(v);
+	
+	}
+	//System.out.println(map);
+	for (int i = 0 ;i < nodes; i++)
+	{ //System.out.println(adj[i]);
+	SortedMap<Integer, Integer> newmap = new TreeMap<>();
+	newmap.putAll(map);
+	Iterator<Integer> it=adj[i].iterator();
+	newmap.values().remove(i);//System.out.println("removing infexted"+newmap);
+	while(it.hasNext()){
+	newmap.values().remove(it.next());
+	}
+	
+	System.out.println(newmap.get(newmap.lastKey())+1);
+	}
+	}
+	}
+	}
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

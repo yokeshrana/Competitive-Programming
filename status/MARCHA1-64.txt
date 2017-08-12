@@ -1,0 +1,53 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 9178076 (C) plaintext list. Status: TLE, problem MARCHA1, contest CODECHEF. By yr96 (yr96), 2016-01-15 10:27:52.
+
+	#include<stdio.h>
+	#include<math.h>
+	int main()
+	{
+	int t;
+	scanf("%d",&t);
+	while(t-->0)
+	{
+	int n,m,k,flag=0;
+	scanf("%d%d",&n,&m);
+	int bc[n];
+	 
+	long int allcomb=pow(2,n),sum,i,j;
+	for(i=0;i<n;i++)
+	scanf("%d",&bc[i]);
+	for(i=0;i<allcomb;i++)
+	{
+	if(flag==1)
+	break;
+	sum=0;
+	for(j=0;j<i;j++)
+	{
+	k=pow(2,j);
+	if(i&k)
+	sum+=bc[j];
+	if(sum==m)
+	flag=1;
+	if(flag==1)
+	break;
+	}
+	}
+	if(flag==1)
+	printf("YES\n");
+	else
+	printf("NO\n");
+	}
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

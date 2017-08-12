@@ -1,0 +1,51 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11717605 (JAVA) plaintext list. Status: AC, problem CHEFKEY, contest OCT16. By yr96 (yr96), 2016-10-07 20:14:10.
+
+	 
+	import java.util.Scanner;
+	 
+	 
+	class Sparsearray {
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	long t=sc.nextInt();
+	 
+	while(t-->0)
+	{
+	long xmax=sc.nextInt(),ymax=sc.nextInt(),color=sc.nextInt();
+	long count=0;
+	// scanf("%d%d%d",&xmax,&ymax,&color);
+	 
+	for(int i=1;i<=xmax;i++)
+	for(int j=1;j<=ymax;j++)
+	{
+	if(i*j==color)
+	count++;
+	}
+	System.out.println(count);
+	}
+	 
+	}
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

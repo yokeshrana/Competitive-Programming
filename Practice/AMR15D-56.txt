@@ -1,0 +1,48 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 9203616 (C) plaintext list. Status: AC, problem AMR15D, contest AMR15ROL. By yr96 (yr96), 2016-01-21 23:43:29.
+
+	#include<stdio.h>
+	int cmp(const void *a,const void *b)
+	{
+	return (*(int*)a-*(int*)b);
+	}
+	int main()
+	{
+	long int n,i;
+	scanf("%ld",&n);
+	long int house[n];
+	for(i=0;i<n;i++)
+	{
+	scanf("%ld",house+i);
+	}
+	qsort(house,n,4,cmp);
+	int t;
+	scanf("%ld",&t);
+	while(t-->0)
+	{
+	long int k,sum=0;
+	scanf("%ld",&k);
+	long int p;
+	float j,m;
+	m=(float)n;
+	j=m/(k+1);
+	p=ceil(j);
+	for(i=0;i<p;i++)
+	sum+=house[i];
+	printf("%ld\n",sum);
+	}
+	return 0;
+	 
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

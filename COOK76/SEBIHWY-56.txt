@@ -1,0 +1,60 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 12127640 (JAVA) plaintext list. Status: AC, problem SEBIHWY, contest COOK76. By yr96 (yr96), 2016-11-20 23:50:18.
+
+	 
+	 
+	import java.util.Scanner;
+	 
+	/**
+	*
+	* @author yokesh
+	*/
+	class SebiHighway {
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	int t=s.nextInt();
+	while(t-->0){
+	double sebispeed=s.nextInt(),sebiguess=s.nextInt(),fatherguess=s.nextInt(),markers=s.nextInt(),time=s.nextInt();
+	double distancecovered;
+	time=time/3600.0;
+	
+	distancecovered=(markers)*50/1000.0;
+	double actualspeed=((distancecovered/time));
+	// System.out.println(actualspeed);
+	actualspeed+=sebispeed;
+	double a=Math.abs(actualspeed-sebiguess),b=Math.abs(actualspeed-fatherguess);
+	// System.out.println(a +" "+ b);
+	
+	if(Math.abs(a-b)<1e-9)
+	System.out.println("DRAW");
+	else
+	if(a<b)
+	System.out.println("SEBI");
+	else
+	System.out.println("FATHER");
+	
+	
+	
+	
+	
+	
+	}
+	}
+	
+	
+	
+	
+	
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

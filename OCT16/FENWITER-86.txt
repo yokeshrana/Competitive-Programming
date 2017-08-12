@@ -1,0 +1,52 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11761582 (JAVA) plaintext list. Status: RE, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-10 12:34:36.
+
+	 
+	import java.util.Scanner;
+	 
+	 
+	class Sparsearray {
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	String a=sc.next(),b=sc.next(),c=sc.next();
+	int d=sc.nextInt();
+	String s="";
+	s=s.concat(a);
+	while(d-->0)
+	s=s.concat(b);
+	s=s.concat(c);
+	
+	
+	Integer i=new Integer(Integer.parseInt(s, 2));
+	int count=0;
+	int start=i&(i+1);
+	while(start!=0) {
+	start=start-1;
+	start=start&(start+1);
+	
+	count++;
+	}
+	System.out.println(count+1);
+	
+	}
+	 
+	}
+	}
+	
+	 
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

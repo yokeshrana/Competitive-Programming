@@ -1,0 +1,40 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11717509 (C++14) plaintext list. Status: TLE, problem CHEFKEY, contest OCT16. By yr96 (yr96), 2016-10-07 20:08:46.
+
+	#include<iostream>
+	#include<cstdio>
+	using namespace std;
+	 
+	int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	long t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	int xmax,ymax,color;
+	int count=0;
+	// scanf("%d%d%d",&xmax,&ymax,&color);
+	cin>>xmax>>ymax>>color;
+	for(int i=1;i<=xmax;i++)
+	for(int j=1;j<=ymax;j++)
+	{
+	if(i*j==color)
+	count++;
+	}
+	printf("%d\n",count);
+	}
+	return 0;
+	}
+	
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+

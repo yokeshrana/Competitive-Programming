@@ -1,0 +1,50 @@
+##########################################################################################################
+################ Programming Website Crawler (PWC) #######################################################
+##########################################################################################################
+
+
+
+CodeChef submission 11782641 (JAVA) plaintext list. Status: AC, problem FENWITER, contest OCT16. By yr96 (yr96), 2016-10-11 14:51:44.
+
+	import java.math.BigInteger;
+	import java.util.Scanner;
+	 
+	 
+	class Sparsearray {
+	
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	while(t-->0){
+	
+	
+	String a=sc.next(),b=sc.next(),c=sc.next();
+	int d=sc.nextInt();
+	StringBuilder s=new StringBuilder("0");
+	s=s.append(a);
+	while(d-->0)
+	s=s.append(b);
+	s=s.append(c);
+	// System.out.println(s);
+	s=s.reverse();
+	// System.out.println(s);
+	s=s.delete(0,(s.indexOf("0")));
+	// System.out.println(s);
+	String l=s.toString();
+	l=l.replaceFirst("0","1");
+	//System.out.println(l);
+	l=l.replaceAll("0", "");
+	// System.out.println(l);
+	
+	// System.out.println(l);
+	System.out.println(l.length());
+	
+	
+	}
+	} }
+
+##########################################################################################################
+################  FOR MORE INFO CONTACT ME AT yokeshrana@gmail.com  #######################################
+##########################################################################################################
+
+
