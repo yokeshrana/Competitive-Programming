@@ -9,24 +9,14 @@ using namespace std;
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-         int prev=INT_MIN;
-         int length=0;
-         int size=nums.size();
-         for(int i=0;i<size;i++){
-            if(nums[i]==prev)
+        if(nums.empty())return 0;
+        int i=0;
+        for (int j=1;j<nums.size();j++)
+            if(nums[i]!=nums[j])
             {
-                nums.erase(nums.begin()+i);
-                size--;
-                i--;
+                nums[++i]=nums[j];
             }
-            else
-            {
-                prev=nums[i];
-                length++;
-            }
-            
-         }
-         return length;
+        return i+1;   
     }
 };
 // @lc code=end
