@@ -4,6 +4,7 @@
  * [448] Find All Numbers Disappeared in an Array
  */
 #include<vector>
+using namespace std;
 // @lc code=start
 class Solution {
 public:
