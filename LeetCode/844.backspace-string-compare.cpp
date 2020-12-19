@@ -10,38 +10,41 @@ class Solution
 {
 public:
     bool backspaceCompare(string S, string T)
-    {
-        stack<char> s, t;
-        for (auto c : S)
-            if (c == '#')
-            {
-                if (!s.empty())
-                    s.pop();
-            }
-            else
-
-                s.push(c);
-        for (auto c : T)
-            if (c == '#')
-            {
-                if (!t.empty())
-                    t.pop();
-            }
-            else
-                t.push(c);
-
-        while (1)
+{
+    int s_len = S.length(), t_len = T.length();
+    int m = 0, n = 0;
+    bool is_equal = true;
+    int i_dx = 0;
+    for (int i = 0; i < s_len; i++)
+        if (S[i] == '#')
         {
-            if (t.empty() && s.empty())
-                return true;
-            if (t.empty() || s.empty())
-                return false;
-            if (s.top() != t.top())
-                return false;
-            s.pop();
-            t.pop();
+            m--;
+            m = max(0, m);
         }
-        return true;
-    }
+        else
+        {
+            S[m++] = S[i];
+        }
+
+    for (int i = 0; i < t_len; i++)
+        if (T[i] == '#')
+        {
+            n--;
+            n = max(0, n);
+        }
+        else
+        {
+            T[n++] = T[i];
+        }
+
+    if (m != n)
+        return false;
+
+    for (int i = 0; i < m; i++)
+        if (S[i] != T[i])
+            return false;
+
+    return true;
+}
 };
 // @lc code=end
