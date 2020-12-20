@@ -20,24 +20,16 @@ using namespace std;
 class Solution
 {
 public:
-    void invertTrees(TreeNode *root)
-    {
-
-        TreeNode *curr = root;
-        if (!curr || (!curr->left && !curr->right))
-            return;
-
-        TreeNode *left = curr->left;
-        TreeNode *right = curr->right;
-        invertTrees(left);
-        invertTrees(right);
-        swap(left, right);
-        curr->left = left;
-        curr->right = right;
-    }
     TreeNode *invertTree(TreeNode *root)
     {
-        invertTrees(root);
+        if (!root)
+            return NULL;
+        TreeNode *left = root->left;
+        TreeNode *right = root->right;
+        invertTree(left);
+        invertTree(right);
+        root->left = right;
+        root->right = left;
         return root;
     }
 };
