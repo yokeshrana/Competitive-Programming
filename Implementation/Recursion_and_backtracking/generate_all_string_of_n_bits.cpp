@@ -1,6 +1,14 @@
 #include <stdc++.h>
 using namespace std;
-// 1 .Generate all String of n bits
+/*
+Generate all string of length n bits .Assume A[0---n-1] is an array of size n
+OR
+Generate all string of length n drawn from {0,1} .Assume A[0---n-1] is an array of size n
+
+Extending this question further 
+Generate all string of length n drawn from {0...k-1} .Assume A[0---n-1] is an array of size n
+*/
+
 void generate(vector<int> &a, int i, int n, int k)
 {
     if (i == n)
