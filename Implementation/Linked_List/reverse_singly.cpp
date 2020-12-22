@@ -29,11 +29,25 @@ struct node *reverse(struct node *head)
     while (curr)
     {
         next=curr->link;
-        curr->link = prev;
+        curr->link = prev; //Imp Step we have to do ,rest all adjustment of links
         prev=curr;
         curr=next;
     }
     return prev;
+}
+
+struct node *reverse_recursive(struct node *head){
+    if(!head)return nullptr; 
+    if(!head->link) return head;//If single element return that 
+    struct node *next=head->link; //Store next element 
+    head->link=nullptr; //Break the node 
+    //Now call the same funstion on another part of the list 
+    struct node *reverse_rest=reverse_recursive(next); 
+    //Now join back the list 
+    next->link=head;
+
+    return reverse_rest;
+    
 }
 int main()
 {
@@ -43,5 +57,10 @@ int main()
     print(ll);
     ll = reverse(ll);
     print(ll);
+    ll=reverse_recursive(ll);
+    print(ll);
     return 0;
 }
+// 12345
+// 54321
+// 12345
