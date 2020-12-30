@@ -1,6 +1,4 @@
-*
-!/**/
-!*.*
+.vscode
 LeetCode/stdc++.h
-Implementation/Test**
-.vscode**
+.DS**
+.o
