@@ -9,37 +9,36 @@ using namespace std;
 class Solution
 {
 public:
-    bool findword(vector<vector<char>> &board, int i, int j, string word, int k, vector<vector<int>> &visited)
+    bool findword(vector<vector<char>> &board, int i, int j, string word, int k)
     {
-       
-        if (i >= board.size() || i < 0 || j < 0 ||j >= board[0].size() || board[i][j] != word[k] || visited[i][j] == 1)
+
+        if (i >= board.size() || i < 0 || j < 0 || j >= board[0].size() || board[i][j] != word[k])
             return false;
-        
+
         if (k == word.length() - 1)
             return true;
         else
             k++;
-        visited[i][j] = 1;
-        if (findword(board, i, j + 1, word, k, visited))
+        char temp = board[i][j];
+        board[i][j] = '#';
+        if (findword(board, i, j + 1, word, k) ||
+            findword(board, i + 1, j, word, k) ||
+            findword(board, i - 1, j, word, k) ||
+            findword(board, i, j - 1, word, k))
             return true;
-        if (findword(board, i + 1, j, word, k, visited))
-            return true;
-        if (findword(board, i - 1, j, word, k, visited))
-            return true;
-        if (findword(board, i, j - 1, word, k, visited))
-            return true;
-       visited[i][j] = 0;
+        board[i][j] = temp;
         return false;
     }
-      bool exist(vector<vector<char>> &board, string word)
+    bool exist(vector<vector<char>> &board, string word)
     {
-        
+
         int k = 0;
         for (int i = 0; i < board.size(); i++)
             for (int j = 0; j < board[0].size(); j++)
-                if (board[i][j] == word[k]){
-                    vector<vector<int>> visited(board.size(), vector<int>(board[0].size(), 0));
-                    if (findword(board, i, j, word, k, visited))
+                if (board[i][j] == word[k])
+                {
+
+                    if (findword(board, i, j, word, k))
                         return true;
                 }
         return false;
