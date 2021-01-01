@@ -9,19 +9,23 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    void generate(vector<int>& nums,vector<vector<int>>  &result,vector<int> &sub,int i){
-        result.push_back(sub);
-        for(int j=i;j<nums.size();j++){  //function work is to generate a vector with elements from i to length of array
-            sub.push_back(nums[j]); //Insert a[j] in subset
-            generate(nums,result,sub,j+1);
-            sub.pop_back(); // backtracking remove a[i] from subset
-        }
-        return ;
-    }
+   
     vector<vector<int>> subsets(vector<int>& nums) {
-       vector<vector<int>>  result;
-       vector<int> sub; 
-        generate(nums,result,sub,0);
+        vector<vector<int>>  result;
+        vector<int> sub;  
+        for(int i=0;i<(1<<nums.size());i++) // For n number total subset is 2^n ,so we generate numbers from 0 - 2^n and according to bits include the numbers in one particular subset .
+        {       
+           int j=i;
+           int index=0;
+           while(j>0){
+               if(j&1==1) //if right most bit is set
+               sub.push_back(nums[index]);  
+               j=j>>1;
+               index++;
+           }
+           result.push_back(sub);
+           sub.clear();
+        }
         return result;
     }
 };
@@ -34,7 +38,7 @@ int main()
     for(auto x:s){
         cout<<"[ ";
     for(auto y:x)
-    cout<<y<<" ";
+     cout<<y<<" ";
      cout<<"]";
      cout<<endl;
     }
