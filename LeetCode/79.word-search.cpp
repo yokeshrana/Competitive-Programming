@@ -9,7 +9,7 @@ using namespace std;
 class Solution
 {
 public:
-    bool findword(vector<vector<char>> &board, int i, int j, string word, int k)
+    bool findword(vector<vector<char>> &board, int i, int j, string &word, int k)
     {
 
         if (i >= board.size() || i < 0 || j < 0 || j >= board[0].size() || board[i][j] != word[k])
@@ -29,7 +29,7 @@ public:
         board[i][j] = temp;
         return false;
     }
-    bool exist(vector<vector<char>> &board, string word)
+    bool exist(vector<vector<char>> &board, string &word)
     {
 
         int k = 0;
