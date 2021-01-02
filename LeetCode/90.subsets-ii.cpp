@@ -9,27 +9,29 @@ using namespace std;
 class Solution
 {
 public:
-    vector<vector<int>> subsetsWithDup(vector<int> &nums)
-    {
-      set<vector<int>>  result;
-        vector<int> sub;  
-        for(int i=0;i<(1<<nums.size());i++) // For n number total subset is 2^n ,so we generate numbers from 0 - 2^n and according to bits include the numbers in one particular subset .
-        {       
-           for(int j=0;j<nums.size();j++)  
-           if((i&1<<j)>0) //if the corresponding bit is set ,then only push
-                sub.push_back(nums[j]);  
-            sort(sub.begin(),sub.end());
-           result.insert(sub);
-           sub.clear();
+   void generate(vector<int>& nums,vector<vector<int>>  &result,vector<int> &sub,int i){
+        result.push_back(sub);
+        for(int j=i;j<nums.size();j++){  //function work is to generate a vector with elements from i to length of array
+            if(j!=i&& nums[j]==nums[j-1]) continue; 
+            sub.push_back(nums[j]); //Insert a[j] in subset
+            generate(nums,result,sub,j+1);
+            sub.pop_back(); // backtracking remove a[i] from subset
         }
-        return vector(result.begin(),result.end());
+        return ;
+    }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+       vector<vector<int>>  result;
+       sort(nums.begin(),nums.end());
+       vector<int> sub; 
+        generate(nums,result,sub,0);
+        return result;
     }
 };
 // @lc code=end
 int main()
 {
     Solution b;
-    vector<int> v{1,2,3};
+    vector<int> v{1,2,2};
     vector<vector<int>> s=b.subsetsWithDup(v);
     for(auto x:s){
         cout<<"[ ";
