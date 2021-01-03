@@ -23,7 +23,7 @@ public:
     {
         int carry = 0;
         ListNode *a = nullptr, *tmp = nullptr;
-        while (l1 || l2)
+        while (l1 || l2 || carry > 0)
         {
             if (l1)
             {
@@ -46,11 +46,6 @@ public:
                 tmp = tmp->next;
             }
             carry = carry / 10;
-        }
-        if (carry > 0)
-        {
-            tmp->next = new ListNode(carry % 10);
-            tmp = tmp->next;
         }
         return a;
     }
