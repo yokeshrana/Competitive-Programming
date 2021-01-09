@@ -10,22 +10,19 @@ class Solution
 public:
     void duplicateZeros(vector<int> &arr)
     {
-        int l = arr.size(), j;
-        for (int i = 0; i < l - 1; i++)
+        int zeroes = 0, i = 0, l = arr.size();
+        for (i = 0; i < l - zeroes; i++)
         {
             if (arr[i] == 0)
-            {
-                {
-
-                    j = l - 1;
-                    while (j != i + 1)
-                        arr[j--] = arr[j - 1];
-                    arr[i + 1] = 0;
-                    i++;
-                }
-            }
+                zeroes++;
         }
-        return;
+        for (i = i - 1; zeroes > 0; --i)
+        {
+            if (i < l - zeroes)
+                arr[i + zeroes] = arr[i];
+            if (arr[i] == 0)
+                arr[i + --zeroes] = arr[i];
+        }
     }
 };
 // @lc code=end
