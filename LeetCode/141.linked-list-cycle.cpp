@@ -14,27 +14,29 @@
  * };
  */
 using namespace std;
-class Solution {
+class Solution
+{
 public:
-    struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode() : val(0), next(nullptr) {}
-      ListNode(int x) : val(x), next(nullptr) {}
-      ListNode(int x, ListNode *next) : val(x), next(next) {}
-    };
-    bool hasCycle(ListNode *head) {
-     ListNode *fast=head,*slow=head;
+  struct ListNode
+  {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+  };
+  bool hasCycle(ListNode *head)
+  {
+    ListNode *fast = head, *slow = head;
 
-       while(slow&&slow->next&&fast&&fast->next&&fast->next->next)
-       {
-           fast=fast->next->next;
-           slow=slow->next;
-           if(fast==slow)
-               return true;
-       }
-    return false;
+    while (fast && fast->next)
+    {
+      fast = fast->next->next;
+      slow = slow->next;
+      if (fast == slow)
+        return true;
     }
+    return false;
+  }
 };
 // @lc code=end
-
