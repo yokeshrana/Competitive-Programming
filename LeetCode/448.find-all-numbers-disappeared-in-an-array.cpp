@@ -3,25 +3,33 @@
  *
  * [448] Find All Numbers Disappeared in an Array
  */
-#include<vector>
+#include <vector>
 using namespace std;
 // @lc code=start
-class Solution {
+class Solution
+{
 public:
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
-        vector<int> v(nums.size()+1,0),t;
-        for(int i=0;i<nums.size();i++)
+    //Note the arra contain elements from 1 to nums.size()
+    vector<int> findDisappearedNumbers(vector<int> &nums)
+    {
+
+        for (int i = 0; i < nums.size(); i++)
         {
-            v[nums[i]]=1;
+            int temp = nums[i];
+            temp = temp > 0 ? temp : -temp;
+            if (nums[temp - 1] > 0)
+                nums[temp - 1] *= -1;
         }
-     for(int i=1;i<=nums.size();i++)
+        vector<int> res;
+        for (int i = 0; i < nums.size(); i++)
         {
-            if(v[i]!=1)
-                t.push_back(i);
-            
+            if (nums[i] > 0)
+                res.push_back(i + 1);
         }
-     return t;  
+        return res;
     }
 };
-// @lc code=end
 
+/* Mark Off values that are already visited by negating them
+Finally in the next pass see the indexes at which values are positice ,these indices are our answers*/
+// @lc code=end

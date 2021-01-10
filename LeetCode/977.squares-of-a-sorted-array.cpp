@@ -11,7 +11,7 @@ class Solution
 public:
     vector<int> sortedSquares(vector<int> &nums)
     {
-        vector<int> x(nums.size());
+        vector<int> x(nums.size()); //Key is here to fill from end
         int k = nums.size() - 1;
         int i = 0, j = k;
         while (i <= j)
