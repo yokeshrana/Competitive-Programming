@@ -9,39 +9,41 @@ using namespace std;
 class Solution
 {
 public:
-    void dfs(vector<vector<int>> &isConnected, vector<bool> &visited, int i)
+    int FindParentGp(int x, vector<int> &gpOf)
     {
-        stack<int> st;
-        st.push(i);
-        visited[i] = true;
-        while (!st.empty())
-        {
-            int x = st.top();
-            st.pop();
-            for (int k = 0; k < visited.size(); k++)
-            {
-                if (!visited[k] && isConnected[x][k])
-                {
-                    st.push(k);
-                    visited[k] = true;
-                }
-            }
-        }
+        return gpOf[x] == x ? x : FindParentGp(gpOf[x], gpOf);
     }
     int findCircleNum(vector<vector<int>> &isConnected)
     {
-        //Prepare a visited array and call dfs until all nodes are visited
-        vector<bool> visited(isConnected.size(), false);
-        int pr_count = 0;
-        for (int i = 0; i < visited.size(); i++)
+        //Using Union Find Algorithm
+        /* 
+       Intially we assume that there are n groups and 
+       we fill like this gp[i]=i  ie each element contains in one gp and store total groups some where as N
+       then we iterate through isConnected matrix and wherever edges are connected
+       we will modify the relation of gp[x]to its new connection and decrement total groups as we formed one connection
+        */
+        int totalGroup = isConnected.size();  //assumption
+        vector<int> gpOf(isConnected.size()); //vector that is used to map element to corresponding gp
+        for (int i = 0; i < gpOf.size(); i++)
+            gpOf[i] = i;
+        int p, q;
+        for (int i = 0; i < isConnected.size(); i++)
         {
-            if (!visited[i])
+            for (int j = i + 1; j < isConnected[0].size(); j++)
             {
-                dfs(isConnected, visited, i);
-                pr_count++;
+                if (isConnected[i][j])
+                {
+                    p = FindParentGp(i, gpOf);
+                    q = FindParentGp(j, gpOf);
+                    if (p != q)
+                    {
+                        gpOf[q] = p;
+                        totalGroup--;
+                    }
+                }
             }
         }
-        return pr_count;
+        return totalGroup;
     }
 };
 // @lc code=end
