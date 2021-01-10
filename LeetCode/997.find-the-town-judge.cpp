@@ -14,16 +14,16 @@ public:
     {
         //If we see the pattern here we have to find a person(ie node)
         //which is trusted by everyone (ie in degree =N-1) and he trust no one ie outdegree=0;
-
-        vector<pair<int, int>> degree(N + 1);
+        //Further Optimized it using only one variable that contain indegree-outdegree count
+        vector<int> degree(N + 1);
         for (auto x : trust)
         {
-            degree[x[0]].second++;
-            degree[x[1]].first++;
+            degree[x[0]]--;
+            degree[x[1]]++;
         }
         for (int i = 1; i < N + 1; i++)
         {
-            if (degree[i].first == N - 1 && degree[i].second == 0)
+            if (degree[i] == N - 1)
                 return i;
         }
         return -1;
