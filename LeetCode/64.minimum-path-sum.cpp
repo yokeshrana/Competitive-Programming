@@ -13,16 +13,15 @@ public:
     {
         int m = grid.size();
         int n = grid[0].size();
-        vector<vector<int>> dp(m, vector<int>(n));
-        dp[0][0] = grid[0][0];
-        for (int k = 1; k < m; k++)
-            dp[k][0] = dp[k - 1][0] + grid[k][0];
-        for (int k = 1; k < n; k++)
-            dp[0][k] = dp[0][k - 1] + grid[0][k];
-        for (int i = 1; i < m; i++)
-            for (int j = 1; j < n; j++)
-                dp[i][j] = grid[i][j] + min(dp[i - 1][j], dp[i][j - 1]);
-        return dp[m - 1][n - 1];
+        int i = 0, j = 0, k = 0;
+        for (k = 1; k < m; ++k)
+            grid[k][0] = grid[k - 1][0] + grid[k][0];
+        for (k = 1; k < n; k++)
+            grid[0][k] = grid[0][k - 1] + grid[0][k];
+        for (i = 1; i < m; ++i)
+            for (j = 1; j < n; ++j)
+                grid[i][j] = grid[i][j] + min(grid[i - 1][j], grid[i][j - 1]);
+        return grid[m - 1][n - 1];
     }
 };
 // @lc code=end
