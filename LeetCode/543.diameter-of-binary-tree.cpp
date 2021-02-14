@@ -33,7 +33,6 @@ public:
         int r = height(root->right);
         int ld = diameterOfBinaryTree(root->left);
         int rd = diameterOfBinaryTree(root->right);
-        return max(l + r, max(ld, rd));
-    }
+        return max(l + r, max(ld, rd));   
 };
 // @lc code=end

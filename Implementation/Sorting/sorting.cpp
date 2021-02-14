@@ -29,7 +29,8 @@ void Sorting::BubbleSort()
 {
     for (int i = 0; i < v.size() - 1; i++)
     {
-        for (int j = 0; j < v.size() - i - 1; j++) //To Reduce the extra swaps added v.size()-i as as in every outer loop max is moved to last ever time
+        for (int j = 0; j < v.size() - i - 1; j++) //To Reduce the extra swaps added v.size()-i as as in every
+        //outer loop max is moved to last ever time
         {
             if (v[j] > v[j + 1])
                 swap(v[j], v[j + 1]); //Swapping adjancent elements ie max is moving to end
@@ -55,7 +56,7 @@ void Sorting::SelectionSort()
         }
         swap(v[i], v[min]);
         /* 
-Best Case :: Aleardy Sorted O(n)
+Best case :: No best case any wasys we have to go through and find min in every iteration
 Worst Case :: When array is reverse Sorted O(n^2)
 Sorting In Place(ie Dont require extra space): Yes
 Stable : Yes

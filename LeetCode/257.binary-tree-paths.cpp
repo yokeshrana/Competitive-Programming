@@ -28,7 +28,9 @@ public:
         else
         {
             if (root->left)
-                traverse(root->left, result, path + "->" + to_string(root->left->val)); //Same like backtracking if we have written path+"->"+to_string(root->left->val) outisde the recursive call we need to call push before recursive call and pop after recursive call.
+                traverse(root->left, result, path + "->" + to_string(root->left->val)); 
+    /*Same like backtracking if we have written path+"->"+to_string(root->left->val) 
+    outisde the recursive call we need to call push before recursive call and pop after recursive call.*/
             if (root->right)
                 traverse(root->right, result, path + "->" + to_string(root->right->val));
         }
