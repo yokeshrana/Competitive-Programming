@@ -3,7 +3,7 @@
  *
  * [11] Container With Most Water
  */
-#include "stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 // @lc code=start
 class Solution

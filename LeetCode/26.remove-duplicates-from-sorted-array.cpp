@@ -3,7 +3,7 @@
  *
  * [26] Remove Duplicates from Sorted Array
  */
-#include "stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 // @lc code=start
 class Solution {

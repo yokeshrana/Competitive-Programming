@@ -9,7 +9,7 @@
  * Definition for singly-linked list.
  * 
  */
-#include "stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 class Solution {
 
