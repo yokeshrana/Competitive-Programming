@@ -46,11 +46,12 @@ public:
         TreeNode *ancestor=findlca(root,startValue,destValue);
         
         string lca2s="",lca2d="";
-        traverse(ancestor,startValue,lca2s);
-        traverse(ancestor,destValue,lca2d);
-        for(auto& c : lca2s) c = 'U';
-        cout<<lca2s<<endl;
-        cout<<lca2d<<endl;
+        traverse(ancestor,startValue,lca2s);  //path from ancestor to startvalue
+        traverse(ancestor,destValue,lca2d);    //path from ancestor to destvalue
+       
+        for(auto& c : lca2s) c = 'U';  //path from ancestor to startvalue is only upwards when reversed so replace by U only
+       // cout<<lca2s<<endl;
+       // cout<<lca2d<<endl;
         
         return lca2s+lca2d;
     }
