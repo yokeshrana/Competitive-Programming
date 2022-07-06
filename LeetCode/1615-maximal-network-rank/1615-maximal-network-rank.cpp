@@ -11,7 +11,7 @@ public:
             for(int j=i+1;j<n;j++)
             {
                 int currRank=adjlist[i].size()+adjlist[j].size();
-                if(adjlist[i].count(j))
+                if(adjlist[i].count(j)) //Count only one if they are directly connected
                     currRank--;
                 mxnwrank=max(mxnwrank,currRank);
             }
